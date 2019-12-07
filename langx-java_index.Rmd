@@ -150,6 +150,3 @@ QQ Group: 750929088
 ![QQ Group](https://github.com/fangjinuo/sqlhelper/blob/master/_images/qq_group.png)
 
 
-## [installation](langx-java/installation.html) {#langx_java_installation}
-
-

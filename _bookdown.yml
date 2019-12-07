@@ -3,3 +3,8 @@ language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
+rmd_files:
+  - index.rmd
+  - langx-java_index.Rmd
+  - langx-java_installation.Rmd
+  - langx-java_references.Rmd
