@@ -9,7 +9,7 @@ bookdown::gitbook:
       after: |
         <li><a href="https://fangjinuo.github.io" target="blank">Github Pages</a></li>
         <li><a href="https://github.com/fangjinuo/book" target="blank">Github</a></li>
-        <li><a href="https://gitee.com/fangjinuo/docs/pages" target="blank">Gitee Pages</a></li>
+        <li><a href="https://fangjinuo.gitee.io/docs" target="blank">Gitee Pages</a></li>
     edit: https://github.com/fangjinuo/book/edit/master/%s
     toolbar:
       position: fixed
