@@ -2,12 +2,35 @@ bookdown::gitbook:
   css: style.css
   config:
     toc:
+      collapse: subsection
+      scroll_highlight: yes
       before: |
-        <li><a href="./">A Minimal Book Example</a></li>
+        <li><a href="https://github.com/fangjinuo/book">Tutorial</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
-    download: ["pdf", "epub"]
+        <li><a href="https://fangjinuo.github.io" target="blank">Github Pages</a></li>
+        <li><a href="https://github.com/fangjinuo/book" target="blank">Github</a></li>
+        <li><a href="https://gitee.com/fangjinuo/docs/pages" target="blank">Gitee Pages</a></li>
+    edit: https://github.com/fangjinuo/book/edit/master/%s
+    toolbar:
+      position: fixed
+    search: yes
+    info: yes
+    download: 
+      - ["toturial.pdf",   "PDF"]
+      - ["toturial.epub", "EPUB"]
+    fontsettings:
+      theme: white
+      family: sans
+      size: 2
+    sharing:
+      facebook: yes
+      github: yes
+      twitter: yes
+      linkedin: yes
+      weibo: yes
+      instapaper: yes
+      vk: yes
+      all: ["facebook", "github", "twitter", "linkedin", "weibo", "instapaper", "vk"]
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
