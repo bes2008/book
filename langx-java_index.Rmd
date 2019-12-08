@@ -1,12 +1,4 @@
 # langx-java {#langx-java}
----
-title: "langx-java"
-author: "github: fangjinuo"
-date: "2019/12/5"
-output: html_document
----
-
-# langx-java
 Java lang extensions，a supplement to , replacement  of a Guava, commons-lang
 
 ## outline
