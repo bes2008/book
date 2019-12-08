@@ -24,12 +24,12 @@ bookdown::gitbook:
       size: 2
     sharing:
       facebook: yes
-      github: yes
-      twitter: yes
-      linkedin: yes
+      github: no
+      twitter: no
+      linkedin: no
       weibo: yes
-      instapaper: yes
-      vk: yes
+      instapaper: no
+      vk: no
       all: ["facebook", "github", "twitter", "linkedin", "weibo", "instapaper", "vk"]
 bookdown::pdf_book:
   includes:
