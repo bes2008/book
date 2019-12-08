@@ -1,11 +1,158 @@
 ---
-title: "references"
-author: "fs1194361820@163.com"
-date: "2019/12/5"
-output: html_document
----
+
+# references {#langx-java_references}
+
+## basic utils
+
+### Emptys
+In any java project, you can often see the following code:
+
+```java
+// scenario 1:
+String s = method1(args);
+if(s != null && s.length() > 0){
+    ...
+}
+
+// scenario 2:
+List<String> list = method2(args);
+if(list != null && !list.isEmpty()){
+    ...
+}
+// or
+if(list != null && list.size() > 0){
+    ...
+}
+
+// scenario 3:
+int[] array = method3(args);
+if(array != null && !array.length > 0){
+    ...
+}
+
+// scenario 4:
+Map<String, Integer> map = method4(args);
+if(map != null && map.size() > 0){
+    ...
+}
+   
+```
+
+to avoid these vomiting code, supply some simple code:
+
+```java
+// scenario 1:
+String s = method1(args);
+if(Emptys.isNotEmpty(s)){
+    ...
+}
+
+// scenario 2:
+List<String> list = method2(args);
+if(Emptys.isNotEmpty(list)){
+    ...
+}
 
 
-## references {#langx-java_references}
+// scenario 3:
+int[] array = method3(args);
+if(Emptys.isNotEmpty(array)){
+    ...
+}
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+// scenario 4:
+Map<String, Integer> map = method4(args);
+if(Emptys.isNotEmpty(map)){
+    ...
+}
+```
+
+wow, you can use Emptys.isNotEmpty() to judge any object is not empty.
+
+```java
+    public static boolean isNotEmpty(Object o) {
+        return !isEmpty(o);
+    }
+
+	public static boolean isEmpty(Object object) {
+        if (object == null) {
+            return true;
+        }
+        if (object instanceof String) {
+            return Strings.isEmpty((String) object);
+        }
+
+        if (object instanceof CharSequence) {
+            CharSequence cs = (CharSequence) object;
+            return cs.length() == 0;
+        }
+
+        if (object instanceof Number) {
+            return isZero((Number) object);
+        }
+
+        if (object instanceof Buffer) {
+            Buffer buff = (Buffer) object;
+            return buff.hasRemaining();
+        }
+
+        if (object instanceof Collection) {
+            return ((Collection) object).isEmpty();
+        }
+
+        if (object instanceof Map) {
+            return ((Map) object).isEmpty();
+        }
+        if (object.getClass().isArray()) {
+            return Arrs.getLength(object) <= 0;
+        }
+
+        if (object.getClass().isEnum()) {
+            return false;
+        }
+
+        return false;
+    }
+```
+
+
+
+### Objects
+
+in java 7 ~ 9 , supply a object utility class: ```java.util.Objects```, many convenient methods in it:
+
+```java
+public static boolean equals(Object a, Object b);
+public static boolean deepEquals(Object a, Object b);
+public static int hashCode(Object o);
+public static int hash(Object... values);
+public static String toString(Object o);
+public static String toString(Object o, String nullDefault);
+public static <T> int compare(T a, T b, Comparator<? super T> c);
+public static boolean isNull(Object obj);
+public static boolean nonNull(Object obj);
+public static <T> T requireNonNull(T obj);
+public static <T> T requireNonNull(T obj, String message);
+public static <T> T requireNonNullElse(T obj, T defaultObj);
+public static <T> T requireNonNullElseGet(T obj, Supplier<? extends T> supplier);
+public static <T> T requireNonNull(T obj, Supplier<String> messageSupplier);
+public static int checkIndex(int index, int length);
+public static int checkFromToIndex(int fromIndex, int toIndex, int length);
+public static int checkFromIndexSize(int fromIndex, int size, int length);
+```
+
+to using the utility class, I migrate it to **langx-java**, named ```com.jn.langx.util.Objects```. It contain all above methods, supply the following methods:
+
+```java
+public static <T> T useValueIfNull(T value, T defaultValue); // it is similar to requireNonNullElse
+public static boolean isNotNull(Object obj); // equals: nonNull
+public static boolean isEmpty(Object o); // based on Emptys.isEmpty()
+public static boolean isNotEmpty(Object o);// based on Emptys.isNotEmpty()
+```
+
+
+
+
+
+
+

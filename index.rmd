@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 output: bookdown::gitbook
 description: Tutorial for langx-java, easyjson, sqlhelper
 documentclass: book
-github-repo: fangjinuo/website
+github-repo: fangjinuo/book
 link-citations: yes
 bibliography:
 - book.bib
