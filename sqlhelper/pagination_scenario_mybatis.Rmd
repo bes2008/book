@@ -40,7 +40,7 @@
            <property name ="sqlhelper.mybatis.pagination.count" value="true" />
            <property name ="sqlhelper.mybatis.pagination.defaultPageSize" value="defaultPageSize" />
            <property name ="sqlhelper.mybatis.pagination.useLastPageIfPageNoOut" value="useLastPageIfPageNoOut" />
-           <property name ="sqlhelper.mybatis.pagination.countSSuffix" value="_COUNT" />
+           <property name ="sqlhelper.mybatis.pagination.countSuffix" value="_COUNT" />
        </plugin>
    </plugins>
    ```

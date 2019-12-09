@@ -1,6 +1,6 @@
 # Pagination # {#sqlhelper_pagination}
 
-## Configuration {#sqlhelper_configuration}
+## Configuration {#pagination_configuration}
 
 There are two types of configurations for pagination:
 
