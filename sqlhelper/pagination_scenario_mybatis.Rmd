@@ -1,0 +1,88 @@
+## MyBatis Application {#sqlhelper_mybatis}
+
+---
+
+### installation {#sqlhelper_mybatis_installation}
+
+1. import dependencies:
+
+   ```xml
+   <dependency>
+       <groupId>com.github.fangjinuo.sqlhelper</groupId>
+       <artifactId>sqlhelper-dialect</artifactId>
+       <version>${sqlhelper.version}</version>
+   </dependency>
+   ```
+
+   
+
+2. config **mybatis-config.xml**:
+
+   ```xml
+   <configuration>
+        ...
+        <databaseIdProvider type="DB_VENDOR">
+            <property name="SQL Server" value="sqlserver"/>
+            <property name="DB2" value="db2"/>
+            <property name="Oracle" value="oracle" />
+        </databaseIdProvider>
+        ...
+        <settings>
+            ...
+            <setting name="defaultScriptingLanguage" value="com.jn.sqlhelper.mybatis.plugins.pagination.CustomScriptLanguageDriver" />
+            ...
+        </settings>
+            ...
+   </configuration>
+       
+   <plugins>
+       <plugin interceptor="com.jn.sqlhelper.mybatis.plugins.pagination.MybatisPaginationPlugin">
+           <property name ="sqlhelper.mybatis.instrumentor.dialect" value="mysql" />
+           <property name ="sqlhelper.mybatis.instrumentor.cacheInstruemtedSql" value="true" />
+           <property name ="sqlhelper.mybatis.pagination.count" value="true" />
+           <property name ="sqlhelper.mybatis.pagination.count" value="defaultPageSize" />
+           <property name ="sqlhelper.mybatis.pagination.count" value="useLastPageIfPageNoOut" />       
+           <property name ="sqlhelper.mybatis.pagination.count" value="_COUNT" />
+       </plugin>
+   </plugins>
+   ```
+
+   
+
+3. Usage
+
+   ```java
+       @GetMapping("/_useMyBatis")
+       public PagingResult list_useMyBatis(
+               @RequestParam(name = "pageNo", required = false) Integer pageNo,
+               @RequestParam(name = "pageSize", required = false) Integer pageSize,
+               @RequestParam(name = "sort", required = false) String sort) {
+           User queryCondition = new User();
+           queryCondition.setAge(10);
+   
+           PagingRequest request = SqlPaginations.preparePagination(pageNo == null ? 1 : pageNo, pageSize == null ? -1 : pageSize, sort);
+   
+           List<User> users = userDao.selectByLimit(queryCondition);
+           String json = JSONBuilderProvider.simplest().toJson(request.getResult());
+           System.out.println(json);
+           json = JSONBuilderProvider.simplest().toJson(users);
+           System.out.println(json);
+           return request.getResult();
+       }
+   ```
+
+
+
+you can find more examples from **UserController** class in [sqlhelper-exmples](https://github.com/fangjinuo/sqlhelper/blob/master/sqlhelper-examples/src/main/java/com/jn/sqlhelper/examples/common/controller/UserController.java)
+
+### specified configurations {#sqlhelper_mybatis_configuration}
+
+to performance, supply a count sql statement cache , you can configure it like:
+
++ ***countCacheInitCapacity***: the initial capacity of  count sql statement cache, the default value is **10**
++ ***countCacheMaxCapacity***: the max capacity of  count sql statement cache, the default values is **1000**,  if you don't want use it , you can close it with any value < 1
++ ***countCacheExpireInSeconds***: the TTL of a count sql statement, the default value is **5**
++ ***countSuffix*** : if you custom some count yourself, using it.  the default value is **_COUNT**
+
+more information you will find out at **com.jn.sqlhelper.mybatis.plugins.pagination.PaginationPluginConfig**
+

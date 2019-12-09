@@ -1,0 +1,97 @@
+# (PART\*) SQLHelper {-}
+
+# Outline # {#sqlhelper_outline}
+
+SQL Tools ( **Dialect**, **Pagination**, **DDL Dump**, **UrlParser**, **SqlStatementParser**, **WallFilter**, **BatchExecutor for Test**) based Java
+
+---
+
+[![License](https://img.shields.io/badge/license-LGPL3.0-green.svg)](https://github.com/fangjinuo/sqlhelper/blob/master/LICENSE)
+
+[![Build Status](https://www.travis-ci.org/fangjinuo/sqlhelper.svg?branch=master)](https://travis-ci.org/fangjinuo/sqlhelper)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9c27e94ffa3a4ee58279c36236b2b075)](https://www.codacy.com/manual/fs1194361820/sqlhelper?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fangjinuo/sqlhelper&amp;utm_campaign=Badge_Grade)
+
+[![JDK](https://img.shields.io/badge/JDK-1.6+-green.svg)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+[![MyBatis](https://img.shields.io/badge/MyBatis-3.x-green.svg)](http://www.mybatis.org/mybatis-3/index.html)
+[![MyBatis](https://img.shields.io/badge/MyBatisPlus-3.x-green.svg)](http://www.mybatis.org/mybatisplus-3/index.html)
+[![jFinal](https://img.shields.io/badge/jFinal-3.x-green.svg)](https://github.com/jfinal/jfinal)
+[![jFinal](https://img.shields.io/badge/jFinal-4.x-green.svg)](https://github.com/jfinal/jfinal)
+[![EBean](https://img.shields.io/badge/Ebean-11.x-green.svg)](https://ebean.io/docs/query/sqlquery)
+[![Mango](https://img.shields.io/badge/Mango-1.6.x-green.svg)](https://github.com/jfaster/mango)
+
+
+[![Spring-Jdbc](https://img.shields.io/badge/SpringJdbc-2.x-green.svg)](https://spring.io/projects/spring-framework)
+[![Spring-Jdbc](https://img.shields.io/badge/SpringJdbc-3.x-green.svg)](https://spring.io/projects/spring-framework)
+[![Spring-Jdbc](https://img.shields.io/badge/SpringJdbc-4.x-green.svg)](https://spring.io/projects/spring-framework)
+[![Spring-Jdbc](https://img.shields.io/badge/SpringJdbc-5.x-green.svg)](https://spring.io/projects/spring-framework)
+
+[![SpringBoot](https://img.shields.io/badge/SpringBoot-1.x-green.svg)](https://spring.io/projects/spring-boot/)
+[![SpringBoot](https://img.shields.io/badge/SpringBoot-2.x-green.svg)](https://spring.io/projects/spring-boot/)
+
+
+
+## Versions
+
+
+[![maven](https://img.shields.io/badge/maven-v2.4.0-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.4.0)
+[![maven](https://img.shields.io/badge/maven-v2.3.1-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.3.1)
+[![maven](https://img.shields.io/badge/maven-v2.3.0-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.3.0)
+[![maven](https://img.shields.io/badge/maven-v2.2.0-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.2.0)
+[![maven](https://img.shields.io/badge/maven-v2.1.2-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.1.2)
+[![maven](https://img.shields.io/badge/maven-v2.1.1-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.1.1)
+[![maven](https://img.shields.io/badge/maven-v2.1.0-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.1.0)
+[![maven](https://img.shields.io/badge/maven-v2.0.7-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.0.7)
+[![maven](https://img.shields.io/badge/maven-v2.0.6-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.0.6)
+[![maven](https://img.shields.io/badge/maven-v2.0.4-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.0.4)
+[![maven](https://img.shields.io/badge/maven-v2.0.3-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.0.3)
+[![maven](https://img.shields.io/badge/maven-v2.0.2-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.0.2)
+[![maven](https://img.shields.io/badge/maven-v2.0.1-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.0.1)
+[![maven](https://img.shields.io/badge/maven-v2.0.0-green.svg)](https://search.maven.org/search?q=g:com.github.fangjinuo.sqlhelper%20AND%20v:2.0.0)
+
+
+
+## Features
+
++ Pagination
+  + Supports Mybatis, Mybatis-plus, SpringJDBC, Apache Commons-DBUtils, JFinal, EBean, Mango...
+  + Supports multiple databases in one application
+  + Supports auto detect dialect, so the dialect option is optional
+  + Supports plugin use Java SPI
+  + Supports spring boot 1.x , 2.x
+  + Supports  JDK 6+
+  + Supports Memory Pagination
+  + Supports SqlSymbolMapper, use it you can mapping any symbol to SQL symbol
+  + Supports subquery pagination for mybatis, spring-jdbc, apache commons-dbutils
+  + Supports 110+ databases, contains all most Chinese databases
+    + AliSQL (阿里 MySQL)
+    + AntDB (亚信)
+    + CirroDB (东方国信 行云)
+    + CynosDB (腾讯云数据库)
+    + Doris (Apache Doris，百度研发)
+    + DM (达梦)
+    + EsgynDB (易鲸捷)
+    + GaussDB (华为 高斯)
+    + GBase (南大通用)
+    + GoldenDB (中兴)
+    + HHDB (恒辉数据库)
+    + HighGo (瀚高)
+    + HybridDB (阿里巴巴 分布式PostgreSQL)
+    + K-DB (浪潮)
+    + KingBase (金仓)
+    + MaxCompute (阿里巴巴)
+    + OBase (上海丛云信息科技)
+    + OceanBase (阿里巴巴/蚂蚁金服 兼容mysql)
+    + OSCAR (神州通用)
+    + OpenBase (东软)
+    + RadonDB (青云)
+    + SequoiaDB (巨杉)
+    + SinoDB (星瑞格)
+    + TDSQL (腾讯 分布式MySQL)
+    + TiDB (北京平凯星辰科技))
+    + Trafodion (易鲸捷 EsgynDB的开源版)
+
++ DDL Dumper
++ URL Parser
++ Batch Executor for Tester
+

@@ -9,3 +9,12 @@ rmd_files:
   - langx-java/index.Rmd
   - langx-java/installation.Rmd
   - langx-java/references.Rmd
+  - sqlhelper/index.Rmd
+  - sqlhelper/pagination_supports_databases.Rmd
+  - sqlhelper/pagination_configuration.Rmd
+  - sqlhelper/pagination_scenario_mybatis.Rmd
+  - sqlhelper/pagination_scenario_mybatis_springboot.Rmd
+  - sqlhelper/pagination_scenario_mybatisplus.Rmd
+  - sqlhelper/pagination_scenario_migrate_pagehelper.Rmd
+  - sqlhelper/pagination_scenario_springjdbc.Rmd
+  

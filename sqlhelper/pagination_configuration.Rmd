@@ -1,0 +1,30 @@
+# Pagination # {#sqlhelper_pagination}
+
+## Configuration {#sqlhelper_configuration}
+
+There are two types of configurations for pagination:
+
+1) Instrumentator configurations:
+
+ (you can find out **com.jn.sqlhelper.dialect.pagination.SQLInstrumentConfig** from source)
+
++ ***dialect***: the database dialect, if sqlhelper can't find a right database dialect, you can use it
++ ***dialectClassName***: your custom dialect class
++ ***cacheInstrumentedSql***: whether cache all instrumentd sql, use it to avoid instrument a sql again, defualt is **false**
++ ***subqueryPagingStartFlag***: the start flag of a subquery sql , the default value is **[PAGING_START]**
++ ***subqueryPagingEndFlag***: the end flag of a subquery sql, the defulat value is **[PAGING_END]**
+
+
+
+2) pagination plugin common configurations:
+
+ (you can find out **com.jn.sqlhelper.dialect.pagination.PaginationProperties** from source)
+
++ ***count*** : where execute ``` select count ```, the default value is **true**
++ ***defaultPageSize***: the default page size, if your pageNo >0,  but the pageSize is not set, will using it. the default value is **10**
++ ***useLastPageIfPageNoOut***: whether get the last page records when your pageNo > maxPages, the defulat value is **false**
+
+
+
+Some plugin specified configurations will be described in themselves.
+
