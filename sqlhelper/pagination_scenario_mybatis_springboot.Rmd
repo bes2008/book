@@ -41,10 +41,11 @@ sqlhelper.mybatis.defaultPageSize= 10
 sqlhelper.mybatis.countSuffix=_COUNT
 ```
 
-more configuration reference : \@ref(pagination_configuration), \@ref(sqlhelper_mybatis_configuration)
+more configuration reference : [Paginagion Configuration](#pagination_configuration)、[Mybatis specified configuration](#sqlhelper_mybatis_configuration)
+
    
 
-3. Usage
+### Usage {#sqlhelper_mybatis_spring_usage}
 
    ```java
        @GetMapping("/_useMyBatis")

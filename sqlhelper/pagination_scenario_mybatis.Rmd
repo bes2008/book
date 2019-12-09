@@ -47,7 +47,7 @@
 
    
 
-3. Usage
+### Usage {#sqlhelper_mybatis_usage}
 
    ```java
        @GetMapping("/_useMyBatis")
