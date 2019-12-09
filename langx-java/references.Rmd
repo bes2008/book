@@ -26,7 +26,7 @@ if(list != null && list.size() > 0){
 
 // scenario 3:
 int[] array = method3(args);
-if(array != null && !array.length > 0){
+if(array != null && array.length > 0){
     ...
 }
 

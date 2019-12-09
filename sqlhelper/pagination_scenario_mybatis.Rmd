@@ -9,12 +9,10 @@
    ```xml
    <dependency>
        <groupId>com.github.fangjinuo.sqlhelper</groupId>
-       <artifactId>sqlhelper-dialect</artifactId>
+       <artifactId>sqlhelper-mybatis</artifactId>
        <version>${sqlhelper.version}</version>
    </dependency>
    ```
-
-   
 
 2. config **mybatis-config.xml**:
 
@@ -40,9 +38,9 @@
            <property name ="sqlhelper.mybatis.instrumentor.dialect" value="mysql" />
            <property name ="sqlhelper.mybatis.instrumentor.cacheInstruemtedSql" value="true" />
            <property name ="sqlhelper.mybatis.pagination.count" value="true" />
-           <property name ="sqlhelper.mybatis.pagination.count" value="defaultPageSize" />
-           <property name ="sqlhelper.mybatis.pagination.count" value="useLastPageIfPageNoOut" />       
-           <property name ="sqlhelper.mybatis.pagination.count" value="_COUNT" />
+           <property name ="sqlhelper.mybatis.pagination.defaultPageSize" value="defaultPageSize" />
+           <property name ="sqlhelper.mybatis.pagination.useLastPageIfPageNoOut" value="useLastPageIfPageNoOut" />
+           <property name ="sqlhelper.mybatis.pagination.countSSuffix" value="_COUNT" />
        </plugin>
    </plugins>
    ```
