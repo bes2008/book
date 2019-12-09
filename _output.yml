@@ -7,23 +7,20 @@ bookdown::gitbook:
       before: |
         <li><a href="https://github.com/fangjinuo/book">Tutorial</a></li>
       after: |
-        <li><a href="https://fangjinuo.github.io" target="blank">Github Pages</a></li>
-        <li><a href="https://github.com/fangjinuo/book" target="blank">Github</a></li>
-        <li><a href="https://fangjinuo.gitee.io/docs" target="blank">Gitee Pages</a></li>
+        <li><a href="https://fangjinuo.github.io" target="_blank">Github Pages</a></li>
+        <li><a href="https://github.com/fangjinuo/book" target="_blank">Github</a></li>
+        <li><a href="https://fangjinuo.gitee.io/docs" target="_blank">Gitee Pages</a></li>
     edit: https://github.com/fangjinuo/book/edit/master/%s
     toolbar:
       position: fixed
     search: yes
     info: yes
-    download: 
-      - ["toturial.pdf",   "PDF"]
-      - ["toturial.epub", "EPUB"]
     fontsettings:
       theme: white
       family: sans
       size: 2
     sharing:
-      facebook: yes
+      facebook: no
       github: no
       twitter: no
       linkedin: no
