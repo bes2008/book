@@ -2,6 +2,7 @@
 
 There are 40% code is string processing in a program, so we're going to have a variety of string processing scenarios.
 
+
 ```java
 public static boolean isEmpty(String str);
 public static boolean isNotEmpty(String str);
