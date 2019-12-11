@@ -44,34 +44,30 @@
        </plugin>
    </plugins>
    ```
+### Usage {#pagination_mybatis_usage}
 
-   
+```java
+    @GetMapping("/_useMyBatis")
+    public PagingResult list_useMyBatis(
+            @RequestParam(name = "pageNo", required = false) Integer pageNo,
+            @RequestParam(name = "pageSize", required = false) Integer pageSize,
+            @RequestParam(name = "sort", required = false) String sort) {
+        User queryCondition = new User();
+        queryCondition.setAge(10);
 
-### Usage {#sqlhelper_mybatis_usage}
+        PagingRequest request = SqlPaginations.preparePagination(pageNo == null ? 1 : pageNo, pageSize == null ? -1 : pageSize, sort);
 
-   ```java
-       @GetMapping("/_useMyBatis")
-       public PagingResult list_useMyBatis(
-               @RequestParam(name = "pageNo", required = false) Integer pageNo,
-               @RequestParam(name = "pageSize", required = false) Integer pageSize,
-               @RequestParam(name = "sort", required = false) String sort) {
-           User queryCondition = new User();
-           queryCondition.setAge(10);
-   
-           PagingRequest request = SqlPaginations.preparePagination(pageNo == null ? 1 : pageNo, pageSize == null ? -1 : pageSize, sort);
-   
-           List<User> users = userDao.selectByLimit(queryCondition);
-           String json = JSONBuilderProvider.simplest().toJson(request.getResult());
-           System.out.println(json);
-           json = JSONBuilderProvider.simplest().toJson(users);
-           System.out.println(json);
-           return request.getResult();
-       }
-   ```
+        List<User> users = userDao.selectByLimit(queryCondition);
+        String json = JSONBuilderProvider.simplest().toJson(request.getResult());
+        System.out.println(json);
+        json = JSONBuilderProvider.simplest().toJson(users);
+        System.out.println(json);
+        return request.getResult();
+    }
+```
 
+more examples you can find out from **UserController** class in [sqlhelper-exmples](https://github.com/fangjinuo/sqlhelper/blob/master/sqlhelper-examples/src/main/java/com/jn/sqlhelper/examples/common/controller/UserController.java)
 
-
-you can find more examples from **UserController** class in [sqlhelper-exmples](https://github.com/fangjinuo/sqlhelper/blob/master/sqlhelper-examples/src/main/java/com/jn/sqlhelper/examples/common/controller/UserController.java)
 
 ### specified configurations {#sqlhelper_mybatis_configuration}
 

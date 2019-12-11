@@ -35,7 +35,7 @@ or configure application.properteis (Optional)
 sqlhelper.mybatis.instrumentor.cacheInstrumentedSql=true
 sqlhelper.mybatis.instrumentor.dialect=mysql
 sqlhelper.mybatis.instrumentor.subqueryPagingStartFlag=[PAGING_START]
-sqlhelper.mybatis.instrumentor.subqueryPagingStartFlag=[PAGING_END]
+sqlhelper.mybatis.instrumentor.subqueryPagingEndFlag=[PAGING_END]
 sqlhelper.mybatis.count= true
 sqlhelper.mybatis.defaultPageSize= 10
 sqlhelper.mybatis.countSuffix=_COUNT
@@ -43,33 +43,27 @@ sqlhelper.mybatis.countSuffix=_COUNT
 
 more configuration reference : [Paginagion Configuration](#pagination_configuration)、[Mybatis specified configuration](#sqlhelper_mybatis_configuration)
 
-   
 
-### Usage {#sqlhelper_mybatis_spring_usage}
+### Usage {#pagination_mybatis_springboot_usage}   
+```java
+    @GetMapping("/_useMyBatis")
+    public PagingResult list_useMyBatis(
+            @RequestParam(name = "pageNo", required = false) Integer pageNo,
+            @RequestParam(name = "pageSize", required = false) Integer pageSize,
+            @RequestParam(name = "sort", required = false) String sort) {
+        User queryCondition = new User();
+        queryCondition.setAge(10);
 
-   ```java
-       @GetMapping("/_useMyBatis")
-       public PagingResult list_useMyBatis(
-               @RequestParam(name = "pageNo", required = false) Integer pageNo,
-               @RequestParam(name = "pageSize", required = false) Integer pageSize,
-               @RequestParam(name = "sort", required = false) String sort) {
-           User queryCondition = new User();
-           queryCondition.setAge(10);
-   
-           PagingRequest request = SqlPaginations.preparePagination(pageNo == null ? 1 : pageNo, pageSize == null ? -1 : pageSize, sort);
-   
-           List<User> users = userDao.selectByLimit(queryCondition);
-           String json = JSONBuilderProvider.simplest().toJson(request.getResult());
-           System.out.println(json);
-           json = JSONBuilderProvider.simplest().toJson(users);
-           System.out.println(json);
-           return request.getResult();
-       }
-   ```
+        PagingRequest request = SqlPaginations.preparePagination(pageNo == null ? 1 : pageNo, pageSize == null ? -1 : pageSize, sort);
 
+        List<User> users = userDao.selectByLimit(queryCondition);
+        String json = JSONBuilderProvider.simplest().toJson(request.getResult());
+        System.out.println(json);
+        json = JSONBuilderProvider.simplest().toJson(users);
+        System.out.println(json);
+        return request.getResult();
+    }
+```
 
-
-you can find more examples from **UserController** class in [sqlhelper-exmples](https://github.com/fangjinuo/sqlhelper/blob/master/sqlhelper-examples/src/main/java/com/jn/sqlhelper/examples/common/controller/UserController.java)
-
-
+more examples you can find out from **UserController** class in [sqlhelper-exmples](https://github.com/fangjinuo/sqlhelper/blob/master/sqlhelper-examples/src/main/java/com/jn/sqlhelper/examples/common/controller/UserController.java)
 

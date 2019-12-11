@@ -1,1 +1,40 @@
 ## Migrate from PageHelper {#sqlhelper_mirgate_pagehelper}
+
+### installation {#pagination_migrate_pagehelper}
+
++ **case 1 : mybatis + mybatisPageHelper**
+
+if your application is (mybatis + mybatisPageHelper ) , migrate your application to sqlhelper, just do this:
+
+  1. remove pageHelper dependency
+  2. add sqlhelper dependency:
+```xml
+  <dependency>
+    <groupId>com.github.fangjinuo.sqlhelper</groupId>
+    <artifactId>sqlhelper-mybatis-over-pagehelper</artifactId>
+    <version>${project.version}</version>
+  </dependency>
+```
+
++ **case 2 :  mybatis-plus + mybatisPageHelper **
+  1. remove pageHelper dependency
+  2. remove all mybatis-plus dependencies
+  3. add sqlhelper dependencies:
+  
+```xml
+  <dependency>
+    <groupId>com.github.fangjinuo.sqlhelper</groupId>
+    <artifactId>sqlhelper-mybatis-over-pagehelper</artifactId>
+    <version>${project.version}</version>
+  </dependency>
+  
+  <dependency>
+     <groupId>com.github.fangjinuo.sqlhelper</groupId>
+     <artifactId>sqlhelper-mybatisplus-spring-boot-starter</artifactId>
+     <version>${sqlhelper.version}</version>
+  </dependency>
+```
+
+
+more configuration reference : [Paginagion Configuration](#pagination_configuration)、[Mybatis specified configuration](#sqlhelper_mybatis_configuration)
+
