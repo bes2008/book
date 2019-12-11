@@ -1,4 +1,4 @@
-### Objects {#langx-java_references_utils_Objects}
+### Strings {#langx-java_references_utils_Strings}
 
 There are 40% code is string processing in a program, so we're going to have a variety of string processing scenarios.
 
