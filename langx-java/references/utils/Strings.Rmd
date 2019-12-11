@@ -1,0 +1,63 @@
+### Objects {#langx-java_references_utils_Objects}
+
+There are 40% code is string processing in a program, so we're going to have a variety of string processing scenarios.
+
+```java
+public static boolean isEmpty(String str);
+public static boolean isNotEmpty(String str);
+public static boolean isBlank(String str);
+public static boolean isNotBlank(String str;
+public static String useValueIfNull(String str, String defaultValue);
+public static String useValueIfBlank(String str, String defaultValue);
+public static String useValueIfEmpty(String str, String defaultValue);
+public static String getEmptyIfNull(String str);
+public static String getEmptyIfBlank(String str);
+public static String getNullIfEmpty(String str);
+public static String getNullIfBlank(String str);
+public static String trimOrEmpty(String str);
+public static String truncate(@NonNull final String string, final int length);
+public static String join(@NonNull final String separator, @Nullable final Iterator objects);
+public static String join(@NonNull final String separator, @Nullable final Iterable objects);
+public static String join(@NonNull final String separator, @Nullable final Object[] objects);
+public static String join(@NonNull final String separator, @Nullable final Integer[] objects);
+public static String join(@NonNull final String separator, @Nullable final Long[] objects);
+public static String join(@NonNull final String separator, @Nullable final Float[] objects);
+public static String join(@NonNull final String separator, @Nullable final Double[] objects);
+public static String join(@NonNull final String separator, @Nullable final Short[] objects);
+public static String join(@NonNull final String separator, @Nullable final Byte[] objects);
+public static String join(@NonNull final String separator, @Nullable final Character[] objects);
+public static String join(@NonNull final String separator, @Nullable final String[] objects);
+public static String[] split(@Nullable String string, @Nullable String separator);
+public static boolean substringMatch(CharSequence str, int index, CharSequence substring);
+public static byte[] getBytesUtf8(final String string);
+public static String newStringUtf8(final byte[] bytes);
+public static String deleteWhitespace(String str);
+public static String removeDuplicateWhitespace(String s);
+public static String unifyLineSeparators(String s);
+public static String unifyLineSeparators(String s, String lineSeparator);
+public static boolean isNumeric(final CharSequence cs);
+public static boolean regionMatches(final CharSequence cs, final boolean ignoreCase, final int thisStart, final CharSequence substring, final int start, final int length);
+public static boolean startsWithIgnoreCase(final CharSequence str, final CharSequence prefix);
+public static boolean startsWith(final CharSequence str, final CharSequence prefix);
+public static boolean startsWith(final CharSequence str, final CharSequence prefix, final boolean ignoreCase);
+public static boolean endsWith(final CharSequence str, final CharSequence suffix);
+public static boolean endsWithIgnoreCase(final CharSequence str, final CharSequence suffix);
+public static boolean containsAny(final CharSequence cs, final char... searchChars);
+public static boolean containsAny(final CharSequence cs, final CharSequence searchChars);
+public static String repeat(final String str, final int repeat);
+public static String repeat(final String str, final String separator, final int repeat);
+public static String repeat(final char ch, final int repeat);
+public static String rightPad(final String str, final int size);
+public static String rightPad(final String str, final int size, final char padChar);
+public static String rightPad(final String str, final int size, String padStr);
+public static String leftPad(final String str, final int size);
+public static String leftPad(final String str, final int size, final char padChar);
+public static String leftPad(final String str, final int size, String padStr);
+ ...
+```
+
+more methods your can find from [javadocs](https://apidoc.gitee.com/fangjinuo/langx-java)
+
+
+
+
