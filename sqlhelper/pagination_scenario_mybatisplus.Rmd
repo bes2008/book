@@ -35,7 +35,7 @@ or configure application.properteis (Optional)
 sqlhelper.mybatis.instrumentor.cacheInstrumentedSql=true
 sqlhelper.mybatis.instrumentor.dialect=mysql
 sqlhelper.mybatis.instrumentor.subqueryPagingStartFlag=[PAGING_START]
-sqlhelper.mybatis.instrumentor.subqueryPagingStartFlag=[PAGING_END]
+sqlhelper.mybatis.instrumentor.subqueryPagingEndFlag=[PAGING_END]
 sqlhelper.mybatis.count= true
 sqlhelper.mybatis.defaultPageSize= 10
 sqlhelper.mybatis.countSuffix=_COUNT

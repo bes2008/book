@@ -33,7 +33,7 @@ or configure application.properteis (Optional)
 sqlhelper.springjdbc.instrumentor.cacheInstrumentedSql=true
 sqlhelper.springjdbc.instrumentor.dialect=mysql
 sqlhelper.springjdbc.instrumentor.subqueryPagingStartFlag=[PAGING_START]
-sqlhelper.springjdbc.instrumentor.subqueryPagingStartFlag=[PAGING_END]
+sqlhelper.springjdbc.instrumentor.subqueryPagingEndFlag=[PAGING_END]
 sqlhelper.springjdbc.count= true
 sqlhelper.springjdbc.defaultPageSize= 10
 sqlhelper.springjdbc.countSuffix=_COUNT
