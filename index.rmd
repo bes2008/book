@@ -2,7 +2,12 @@
 title: "Tutorial"
 author: "fangjinuo"
 date: "`r Sys.Date()`"
-output: bookdown::gitbook
+output: 
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float: true
+    keep_md: true
 description: Tutorial for langx-java, easyjson, sqlhelper
 documentclass: book
 github-repo: fangjinuo/book

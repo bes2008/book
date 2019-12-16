@@ -44,7 +44,7 @@ sqlhelper.mybatis.countSuffix=_COUNT
 more configuration reference : [Paginagion Configuration](#pagination_configuration)、[Mybatis specified configuration](#sqlhelper_mybatis_configuration)
 
 
-### Usage {#pagination_mybatis_usage}   
+### Usage {#pagination_mybatisplus_usage}   
 ```java
     @GetMapping("/_useMyBatis")
     public PagingResult list_useMyBatis(
