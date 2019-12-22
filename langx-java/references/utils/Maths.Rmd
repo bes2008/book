@@ -1,0 +1,29 @@
+### Maths {#langx-java_references_utils_Maths}
+
+Math compute methods:
+
+```java
+public static int max(int... array);
+public static float max(float... array);
+public static long max(long... array);
+public static doule max(doule... array);
+public static int min(int... array);
+public static float min(float... array);
+public static long min(long... array);
+public static doule min(doule... array);
+public static int abs(int value);
+public static int max(int... array);
+public static float max(float... array);
+public static long max(long... array);
+public static doule max(doule... array);
+public static int sum(int... array);
+public static float sum(float... array);
+public static long sum(long... array);
+public static doule sum(doule... array);
+public static int avg(int... array);
+public static float avg(float... array);
+public static long avg(long... array);
+public static doule avg(doule... array);
+public static boolean isOutOfBounds(int index, int length, int capacity);
+```
+

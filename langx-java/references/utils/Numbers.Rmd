@@ -1,0 +1,18 @@
+### Numbers {#langx-java_references_utils_Numbers}
+
+convert a string to a number
+
+```java
+public static Float createFloat(String str);
+public static Double createDouble(String str);
+public static Integer createInteger(String str);
+public static Long createLong(String str);
+public static BigInteger createBigInteger(String str);
+public static BigDecimal createBigDecimal(String str);
+public static boolean isDigits(String str);
+public static boolean isNumber(String str);
+public static Number createNumber(String str);
+public static <T extends Number> T parseNumber(String text, Class<T> targetClass);
+public static <T extends Number> T parseNumber(String text, Class<T> targetClass, @Nullable NumberFormat numberFormat)
+```
+

@@ -1,0 +1,25 @@
+### Chars {#langx-java_references_utils_Chars}
+
+Char utility methods:
+
+```java
+public static boolean isAlphabetic(int codePoint);
+public static boolean isAscii(final char ch);
+public static boolean isAsciiPrintable(final char ch);
+public static boolean isNumber(final char c);
+public static int toInt(char c);
+public static char toLowerCase(char c);
+public static byte toLowerCase(byte c);
+public static byte toUpperCase(byte b);
+public static char toUpperCase(char b);
+public static boolean isLowerCase(byte value);
+public static boolean isLowerCase(char value);
+public static boolean isUpperCase(byte value);
+public static boolean isUpperCase(char value);
+public static boolean isLowOrUpperCase(char value);
+public static boolean isLowOrUpperCase(byte value);
+public static byte c2b(char c);
+public static char b2c(byte b);
+public static int compare(final char x, final char y);
+```
+

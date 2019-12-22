@@ -1,0 +1,20 @@
+### Bytes {#langx-java_references_utils_Bytes}
+
+Byte utility methods:
+
+```java
+public static long fromLittleEndian(byte[] bytes);
+public static long fromLittleEndian(byte[] bytes, final int off, final int length);
+public static long fromLittleEndian(InputStream in, int length);
+public static long fromLittleEndian(ByteSupplier supplier, final int length);
+public static long fromLittleEndian(DataInput in, int length);
+public static void toLittleEndian(final byte[] b, final long value, final int off, final int length);
+public static void toLittleEndian(OutputStream out, final long value, final int length);
+public static void toLittleEndian(ByteConsumer consumer, final long value, final int length);
+public static void toLittleEndian(DataOutput out, final long value, final int length);
+public static byte toLowerCase(byte c);
+public static byte toUpperCase(byte b);
+public static boolean isLowerCase(byte value);
+public static boolean isUpperCase(byte value);
+```
+

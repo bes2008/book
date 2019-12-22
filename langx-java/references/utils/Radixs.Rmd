@@ -1,0 +1,37 @@
+### Radixs {#langx-java_references_utils_Radixs}
+
+Radix converter, convet a byte,byte[], char, char[], short, short[], int, int[], long, long[] to binary, otc, decimal, hex.
+
+```java
+// convert a int to n radix;
+public static String toRadix(int b, int radix);
+public static String toBinary(byte b);
+public static String toBinary(char b);
+public static String toBinary(short b);
+public static String toBinary(int b);
+public static String toBinary(long b);
+public static String toOtc(byte b);
+public static String toOtc(char b);
+public static String toOtc(short b);
+public static String toOtc(int b);
+public static String toOtc(long b);
+public static String toDecimal(byte b);
+public static String toDecimal(char b);
+public static String toDecimal(short b);
+public static String toDecimal(int b);
+public static String toDecimal(long b);
+public static String toHex(byte b);
+public static String toHex(char b);
+public static String toHex(short b);
+public static String toHex(int b);
+public static String toHex(long b);
+public static String toHex2(byte b);
+public static String toHex2(char b);
+public static String toHex2(short b);
+public static String toHex2(int b);
+public static String toHex2(long b);
+public static String toHex(byte[] bytes);
+public static String toHex2(byte[] bytes);
+
+```
+

@@ -13,6 +13,11 @@ rmd_files:
   - langx-java/references/utils/Emptys.Rmd
   - langx-java/references/utils/Objects.Rmd
   - langx-java/references/utils/Strings.Rmd
+  - langx-java/references/utils/Numbers.Rmd
+  - langx-java/references/utils/Bytes.Rmd
+  - langx-java/references/utils/Chars.Rmd
+  - langx-java/references/utils/Radixs.Rmd
+  - langx-java/references/utils/Maths.Rmd
   - sqlhelper/index.Rmd
   - sqlhelper/pagination_supports_databases.Rmd
   - sqlhelper/pagination_configuration.Rmd
