@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Pagination | Tutorial</title>
+  <meta name="description" content="Chapter 5 Pagination | Tutorial for langx-java, easyjson, sqlhelper" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Pagination | Tutorial" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Chapter 5 Pagination | Tutorial for langx-java, easyjson, sqlhelper" />
+  <meta name="github-repo" content="fangjinuo/book" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Pagination | Tutorial" />
+  
+  <meta name="twitter:description" content="Chapter 5 Pagination | Tutorial for langx-java, easyjson, sqlhelper" />
+  
+
+<meta name="author" content="fangjinuo" />
+
+
+<meta name="date" content="2019-12-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="sqlhelper-outline.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://github.com/fangjinuo/book">Tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="part"><span><b>langx-java</b></span></li>
+<li class="chapter" data-level="1" data-path="langx-java-outline.html"><a href="langx-java-outline.html"><i class="fa fa-check"></i><b>1</b> outline</a><ul>
+<li class="chapter" data-level="1.1" data-path="langx-java-outline.html"><a href="langx-java-outline.html#repository"><i class="fa fa-check"></i><b>1.1</b> Repository</a></li>
+<li class="chapter" data-level="1.2" data-path="langx-java-outline.html"><a href="langx-java-outline.html#langx-java_version"><i class="fa fa-check"></i><b>1.2</b> Versions</a></li>
+<li class="chapter" data-level="1.3" data-path="langx-java-outline.html"><a href="langx-java-outline.html#langx-java_features"><i class="fa fa-check"></i><b>1.3</b> Features</a></li>
+<li class="chapter" data-level="1.4" data-path="langx-java-outline.html"><a href="langx-java-outline.html#langx-java_contact"><i class="fa fa-check"></i><b>1.4</b> Contact</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="langx-java-installation.html"><a href="langx-java-installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a></li>
+<li class="chapter" data-level="3" data-path="langx-java-references.html"><a href="langx-java-references.html"><i class="fa fa-check"></i><b>3</b> references</a><ul>
+<li class="chapter" data-level="3.1" data-path="langx-java-references.html"><a href="langx-java-references.html#lanx-java_references_utils"><i class="fa fa-check"></i><b>3.1</b> basic utils</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="langx-java-references.html"><a href="langx-java-references.html#langx-java_references_utils_Emptys"><i class="fa fa-check"></i><b>3.1.1</b> Emptys</a></li>
+<li class="chapter" data-level="3.1.2" data-path="langx-java-references.html"><a href="langx-java-references.html#langx-java_references_utils_Objects"><i class="fa fa-check"></i><b>3.1.2</b> Objects</a></li>
+<li class="chapter" data-level="3.1.3" data-path="langx-java-references.html"><a href="langx-java-references.html#langx-java_references_utils_Strings"><i class="fa fa-check"></i><b>3.1.3</b> Strings</a></li>
+<li class="chapter" data-level="3.1.4" data-path="langx-java-references.html"><a href="langx-java-references.html#langx-java_references_utils_Numbers"><i class="fa fa-check"></i><b>3.1.4</b> Numbers</a></li>
+<li class="chapter" data-level="3.1.5" data-path="langx-java-references.html"><a href="langx-java-references.html#langx-java_references_utils_Bytes"><i class="fa fa-check"></i><b>3.1.5</b> Bytes</a></li>
+<li class="chapter" data-level="3.1.6" data-path="langx-java-references.html"><a href="langx-java-references.html#langx-java_references_utils_Chars"><i class="fa fa-check"></i><b>3.1.6</b> Chars</a></li>
+<li class="chapter" data-level="3.1.7" data-path="langx-java-references.html"><a href="langx-java-references.html#langx-java_references_utils_Radixs"><i class="fa fa-check"></i><b>3.1.7</b> Radixs</a></li>
+<li class="chapter" data-level="3.1.8" data-path="langx-java-references.html"><a href="langx-java-references.html#langx-java_references_utils_Maths"><i class="fa fa-check"></i><b>3.1.8</b> Maths</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>SQLHelper</b></span></li>
+<li class="chapter" data-level="4" data-path="sqlhelper-outline.html"><a href="sqlhelper-outline.html"><i class="fa fa-check"></i><b>4</b> Outline</a><ul>
+<li class="chapter" data-level="4.1" data-path="sqlhelper-outline.html"><a href="sqlhelper-outline.html#versions"><i class="fa fa-check"></i><b>4.1</b> Versions</a></li>
+<li class="chapter" data-level="4.2" data-path="sqlhelper-outline.html"><a href="sqlhelper-outline.html#features"><i class="fa fa-check"></i><b>4.2</b> Features</a></li>
+<li class="chapter" data-level="4.3" data-path="sqlhelper-outline.html"><a href="sqlhelper-outline.html#supports-databases"><i class="fa fa-check"></i><b>4.3</b> Supports Databases</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html"><i class="fa fa-check"></i><b>5</b> Pagination</a><ul>
+<li class="chapter" data-level="5.1" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#pagination_configuration"><i class="fa fa-check"></i><b>5.1</b> Configuration</a></li>
+<li class="chapter" data-level="5.2" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#sqlhelper_mybatis"><i class="fa fa-check"></i><b>5.2</b> MyBatis Application</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#sqlhelper_mybatis_installation"><i class="fa fa-check"></i><b>5.2.1</b> installation</a></li>
+<li class="chapter" data-level="5.2.2" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#sqlhelper_mybatis_configuration"><i class="fa fa-check"></i><b>5.2.2</b> specified configurations</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#sqlhelper_mybatis_springboot"><i class="fa fa-check"></i><b>5.3</b> MyBatis + Spring Boot</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#sqlhelper_mybatis_springboot_installation"><i class="fa fa-check"></i><b>5.3.1</b> installation</a></li>
+<li class="chapter" data-level="5.3.2" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#pagination_mybatis_springboot_usage"><i class="fa fa-check"></i><b>5.3.2</b> Usage</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#sqlhelper_mybatisplus_springboot"><i class="fa fa-check"></i><b>5.4</b> MyBatis-plus + Spring Boot Application</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#sqlhelper_mybatisplus_springboot_installation"><i class="fa fa-check"></i><b>5.4.1</b> installation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#pagination_mybatisplus_usage"><i class="fa fa-check"></i><b>5.4.2</b> Usage</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#sqlhelper_mirgate_pagehelper"><i class="fa fa-check"></i><b>5.5</b> Migrate from PageHelper</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#pagination_migrate_pagehelper"><i class="fa fa-check"></i><b>5.5.1</b> installation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#sqlhelper_springjdbc"><i class="fa fa-check"></i><b>5.6</b> SpringJDBC Application</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#pagination_springjdbc_installation"><i class="fa fa-check"></i><b>5.6.1</b> installation</a></li>
+<li class="chapter" data-level="5.6.2" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#pagination_springjdbc_usage"><i class="fa fa-check"></i><b>5.6.2</b> Usage</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#pagination_apache_dbutils"><i class="fa fa-check"></i><b>5.7</b> Apache DBUtils Application</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#pagination_apachedbutils_installation"><i class="fa fa-check"></i><b>5.7.1</b> installation</a></li>
+<li class="chapter" data-level="5.7.2" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#pagination_apachedbutils_usage"><i class="fa fa-check"></i><b>5.7.2</b> Usage</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="sqlhelper-pagination.html"><a href="sqlhelper-pagination.html#pagination_usage"><i class="fa fa-check"></i><b>5.8</b> Usage</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://fangjinuo.github.io" target="_blank">Github Pages</a></li>
+<li><a href="https://github.com/fangjinuo/book" target="_blank">Github</a></li>
+<li><a href="https://fangjinuo.gitee.io/docs" target="_blank">Gitee Pages</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tutorial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sqlhelper_pagination" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Pagination</h1>
+<div id="pagination_configuration" class="section level2">
+<h2><span class="header-section-number">5.1</span> Configuration</h2>
+<p>There are two types of configurations for pagination:</p>
+<ol style="list-style-type: decimal">
+<li>Instrumentator configurations:</li>
+</ol>
+<p>(you can find out <strong>com.jn.sqlhelper.dialect.pagination.SQLInstrumentConfig</strong> from source)</p>
+<ul>
+<li><strong><em>dialect</em></strong>: the database dialect, if sqlhelper can’t find a right database dialect, you can use it</li>
+<li><strong><em>dialectClassName</em></strong>: your custom dialect class</li>
+<li><strong><em>cacheInstrumentedSql</em></strong>: whether cache all instrumentd sql, use it to avoid instrument a sql again, defualt is <strong>false</strong></li>
+<li><strong><em>subqueryPagingStartFlag</em></strong>: the start flag of a subquery sql , the default value is <strong>[PAGING_START]</strong></li>
+<li><strong><em>subqueryPagingEndFlag</em></strong>: the end flag of a subquery sql, the defulat value is <strong>[PAGING_END]</strong></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>pagination plugin common configurations:</li>
+</ol>
+<p>(you can find out <strong>com.jn.sqlhelper.dialect.pagination.PaginationProperties</strong> from source)</p>
+<ul>
+<li><strong><em>count</em></strong> : where execute <code>select count</code>, the default value is <strong>true</strong></li>
+<li><strong><em>defaultPageSize</em></strong>: the default page size, if your pageNo &gt;0, but the pageSize is not set, will using it. the default value is <strong>10</strong></li>
+<li><strong><em>useLastPageIfPageNoOut</em></strong>: whether get the last page records when your pageNo &gt; maxPages, the defulat value is <strong>false</strong></li>
+</ul>
+<p>Some plugin specified configurations will be described in themselves.</p>
+
+</div>
+<div id="sqlhelper_mybatis" class="section level2">
+<h2><span class="header-section-number">5.2</span> MyBatis Application</h2>
+<hr />
+<div id="sqlhelper_mybatis_installation" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> installation</h3>
+<ol style="list-style-type: decimal">
+<li><p>import dependencies:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">&lt;dependency&gt;</span></a>
+<a class="sourceLine" id="cb13-2" title="2">    <span class="kw">&lt;groupId&gt;</span>com.github.fangjinuo.sqlhelper<span class="kw">&lt;/groupId&gt;</span></a>
+<a class="sourceLine" id="cb13-3" title="3">    <span class="kw">&lt;artifactId&gt;</span>sqlhelper-mybatis<span class="kw">&lt;/artifactId&gt;</span></a>
+<a class="sourceLine" id="cb13-4" title="4">    <span class="kw">&lt;version&gt;</span>${sqlhelper.version}<span class="kw">&lt;/version&gt;</span></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="kw">&lt;/dependency&gt;</span></a></code></pre></div></li>
+<li><p>config <strong>mybatis-config.xml</strong>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">&lt;configuration&gt;</span></a>
+<a class="sourceLine" id="cb14-2" title="2">     ...</a>
+<a class="sourceLine" id="cb14-3" title="3">     <span class="kw">&lt;databaseIdProvider</span><span class="ot"> type=</span><span class="st">&quot;DB_VENDOR&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb14-4" title="4">         <span class="kw">&lt;property</span><span class="ot"> name=</span><span class="st">&quot;SQL Server&quot;</span><span class="ot"> value=</span><span class="st">&quot;sqlserver&quot;</span><span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb14-5" title="5">         <span class="kw">&lt;property</span><span class="ot"> name=</span><span class="st">&quot;DB2&quot;</span><span class="ot"> value=</span><span class="st">&quot;db2&quot;</span><span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb14-6" title="6">         <span class="kw">&lt;property</span><span class="ot"> name=</span><span class="st">&quot;Oracle&quot;</span><span class="ot"> value=</span><span class="st">&quot;oracle&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb14-7" title="7">     <span class="kw">&lt;/databaseIdProvider&gt;</span></a>
+<a class="sourceLine" id="cb14-8" title="8">     ...</a>
+<a class="sourceLine" id="cb14-9" title="9">     <span class="kw">&lt;settings&gt;</span></a>
+<a class="sourceLine" id="cb14-10" title="10">         ...</a>
+<a class="sourceLine" id="cb14-11" title="11">         <span class="kw">&lt;setting</span><span class="ot"> name=</span><span class="st">&quot;defaultScriptingLanguage&quot;</span><span class="ot"> value=</span><span class="st">&quot;com.jn.sqlhelper.mybatis.plugins.pagination.CustomScriptLanguageDriver&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb14-12" title="12">         ...</a>
+<a class="sourceLine" id="cb14-13" title="13">     <span class="kw">&lt;/settings&gt;</span></a>
+<a class="sourceLine" id="cb14-14" title="14">         ...</a>
+<a class="sourceLine" id="cb14-15" title="15"><span class="kw">&lt;/configuration&gt;</span></a>
+<a class="sourceLine" id="cb14-16" title="16"></a>
+<a class="sourceLine" id="cb14-17" title="17"><span class="kw">&lt;plugins&gt;</span></a>
+<a class="sourceLine" id="cb14-18" title="18">    <span class="kw">&lt;plugin</span><span class="ot"> interceptor=</span><span class="st">&quot;com.jn.sqlhelper.mybatis.plugins.pagination.MybatisPaginationPlugin&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb14-19" title="19">        <span class="kw">&lt;property</span><span class="ot"> name</span> <span class="ot">=</span><span class="st">&quot;sqlhelper.mybatis.instrumentor.dialect&quot;</span><span class="ot"> value=</span><span class="st">&quot;mysql&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb14-20" title="20">        <span class="kw">&lt;property</span><span class="ot"> name</span> <span class="ot">=</span><span class="st">&quot;sqlhelper.mybatis.instrumentor.cacheInstruemtedSql&quot;</span><span class="ot"> value=</span><span class="st">&quot;true&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb14-21" title="21">        <span class="kw">&lt;property</span><span class="ot"> name</span> <span class="ot">=</span><span class="st">&quot;sqlhelper.mybatis.pagination.count&quot;</span><span class="ot"> value=</span><span class="st">&quot;true&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb14-22" title="22">        <span class="kw">&lt;property</span><span class="ot"> name</span> <span class="ot">=</span><span class="st">&quot;sqlhelper.mybatis.pagination.defaultPageSize&quot;</span><span class="ot"> value=</span><span class="st">&quot;defaultPageSize&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb14-23" title="23">        <span class="kw">&lt;property</span><span class="ot"> name</span> <span class="ot">=</span><span class="st">&quot;sqlhelper.mybatis.pagination.useLastPageIfPageNoOut&quot;</span><span class="ot"> value=</span><span class="st">&quot;useLastPageIfPageNoOut&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb14-24" title="24">        <span class="kw">&lt;property</span><span class="ot"> name</span> <span class="ot">=</span><span class="st">&quot;sqlhelper.mybatis.pagination.countSuffix&quot;</span><span class="ot"> value=</span><span class="st">&quot;_COUNT&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb14-25" title="25">    <span class="kw">&lt;/plugin&gt;</span></a>
+<a class="sourceLine" id="cb14-26" title="26"><span class="kw">&lt;/plugins&gt;</span></a></code></pre></div>
+<h3 id="pagination_mybatis_usage"><span class="header-section-number">5.2.1</span> Usage</h3></li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb15-1" title="1">    <span class="at">@GetMapping</span>(<span class="st">&quot;/_useMyBatis&quot;</span>)</a>
+<a class="sourceLine" id="cb15-2" title="2">    <span class="kw">public</span> PagingResult <span class="fu">list_useMyBatis</span>(</a>
+<a class="sourceLine" id="cb15-3" title="3">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageNo&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageNo,</a>
+<a class="sourceLine" id="cb15-4" title="4">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageSize&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageSize,</a>
+<a class="sourceLine" id="cb15-5" title="5">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;sort&quot;</span>, required = <span class="kw">false</span>) <span class="bu">String</span> sort) {</a>
+<a class="sourceLine" id="cb15-6" title="6">        User queryCondition = <span class="kw">new</span> <span class="fu">User</span>();</a>
+<a class="sourceLine" id="cb15-7" title="7">        queryCondition.<span class="fu">setAge</span>(<span class="dv">10</span>);</a>
+<a class="sourceLine" id="cb15-8" title="8"></a>
+<a class="sourceLine" id="cb15-9" title="9">        PagingRequest request = SqlPaginations.<span class="fu">preparePagination</span>(pageNo == <span class="kw">null</span> ? <span class="dv">1</span> : pageNo, pageSize == <span class="kw">null</span> ? -<span class="dv">1</span> : pageSize, sort);</a>
+<a class="sourceLine" id="cb15-10" title="10"></a>
+<a class="sourceLine" id="cb15-11" title="11">        <span class="bu">List</span>&lt;User&gt; users = userDao.<span class="fu">selectByLimit</span>(queryCondition);</a>
+<a class="sourceLine" id="cb15-12" title="12">        <span class="bu">String</span> json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(request.<span class="fu">getResult</span>());</a>
+<a class="sourceLine" id="cb15-13" title="13">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb15-14" title="14">        json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(users);</a>
+<a class="sourceLine" id="cb15-15" title="15">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb15-16" title="16">        <span class="kw">return</span> request.<span class="fu">getResult</span>();</a>
+<a class="sourceLine" id="cb15-17" title="17">    }</a></code></pre></div>
+<p>more examples you can find out from <strong>UserController</strong> class in <a href="https://github.com/fangjinuo/sqlhelper/blob/master/sqlhelper-examples/src/main/java/com/jn/sqlhelper/examples/common/controller/UserController.java">sqlhelper-exmples</a></p>
+</div>
+<div id="sqlhelper_mybatis_configuration" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> specified configurations</h3>
+<p>to performance, supply a count sql statement cache , you can configure it like:</p>
+<ul>
+<li><strong><em>countCacheInitCapacity</em></strong>: the initial capacity of count sql statement cache, the default value is <strong>10</strong></li>
+<li><strong><em>countCacheMaxCapacity</em></strong>: the max capacity of count sql statement cache, the default values is <strong>1000</strong>, if you don’t want use it , you can close it with any value &lt; 1</li>
+<li><strong><em>countCacheExpireInSeconds</em></strong>: the TTL of a count sql statement, the default value is <strong>5</strong></li>
+<li><strong><em>countSuffix</em></strong> : if you custom some count yourself, using it. the default value is **_COUNT**</li>
+</ul>
+<p>more information you will find out at <strong>com.jn.sqlhelper.mybatis.plugins.pagination.PaginationPluginConfig</strong></p>
+
+</div>
+</div>
+<div id="sqlhelper_mybatis_springboot" class="section level2">
+<h2><span class="header-section-number">5.3</span> MyBatis + Spring Boot</h2>
+<hr />
+<div id="sqlhelper_mybatis_springboot_installation" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> installation</h3>
+<ol style="list-style-type: decimal">
+<li><p>import dependencies:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">&lt;dependency&gt;</span></a>
+<a class="sourceLine" id="cb16-2" title="2">    <span class="kw">&lt;groupId&gt;</span>com.github.fangjinuo.sqlhelper<span class="kw">&lt;/groupId&gt;</span></a>
+<a class="sourceLine" id="cb16-3" title="3">    <span class="kw">&lt;artifactId&gt;</span>sqlhelper-mybatis-spring-boot-starter<span class="kw">&lt;/artifactId&gt;</span></a>
+<a class="sourceLine" id="cb16-4" title="4">    <span class="kw">&lt;version&gt;</span>${sqlhelper.version}<span class="kw">&lt;/version&gt;</span></a>
+<a class="sourceLine" id="cb16-5" title="5"><span class="kw">&lt;/dependency&gt;</span></a></code></pre></div></li>
+<li><p>configure applcation.yml (Optional):</p></li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb17-1" title="1"><span class="fu">sqlhelper:</span></a>
+<a class="sourceLine" id="cb17-2" title="2">  <span class="fu">mybatis:</span></a>
+<a class="sourceLine" id="cb17-3" title="3">    <span class="fu">instrumentor:</span></a>
+<a class="sourceLine" id="cb17-4" title="4">      <span class="fu">cache-instrumented-sql:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb17-5" title="5">      <span class="fu">subquery-paging-start-flag:</span><span class="at"> </span><span class="st">&quot;[PAGING_StART]&quot;</span></a>
+<a class="sourceLine" id="cb17-6" title="6">      <span class="fu">subquery-paging-end-flag:</span><span class="at"> </span><span class="st">&quot;[PAGING_END]&quot;</span></a>
+<a class="sourceLine" id="cb17-7" title="7">    <span class="fu">pagination:</span></a>
+<a class="sourceLine" id="cb17-8" title="8">      <span class="fu">count:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb17-9" title="9">      <span class="fu">default-page-size:</span><span class="at"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb17-10" title="10">      <span class="fu">use-last-page-if-page-no-out:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb17-11" title="11">      <span class="fu">count-suffix:</span><span class="at"> _COUNT</span></a></code></pre></div>
+<p>or configure application.properteis (Optional)</p>
+<pre class="properties"><code>sqlhelper.mybatis.instrumentor.cacheInstrumentedSql=true
+sqlhelper.mybatis.instrumentor.dialect=mysql
+sqlhelper.mybatis.instrumentor.subqueryPagingStartFlag=[PAGING_START]
+sqlhelper.mybatis.instrumentor.subqueryPagingEndFlag=[PAGING_END]
+sqlhelper.mybatis.count= true
+sqlhelper.mybatis.defaultPageSize= 10
+sqlhelper.mybatis.countSuffix=_COUNT</code></pre>
+<p>more configuration reference : <a href="sqlhelper-pagination.html#pagination_configuration">Paginagion Configuration</a>、<a href="sqlhelper-pagination.html#sqlhelper_mybatis_configuration">Mybatis specified configuration</a></p>
+</div>
+<div id="pagination_mybatis_springboot_usage" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Usage</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb19-1" title="1">    <span class="at">@GetMapping</span>(<span class="st">&quot;/_useMyBatis&quot;</span>)</a>
+<a class="sourceLine" id="cb19-2" title="2">    <span class="kw">public</span> PagingResult <span class="fu">list_useMyBatis</span>(</a>
+<a class="sourceLine" id="cb19-3" title="3">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageNo&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageNo,</a>
+<a class="sourceLine" id="cb19-4" title="4">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageSize&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageSize,</a>
+<a class="sourceLine" id="cb19-5" title="5">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;sort&quot;</span>, required = <span class="kw">false</span>) <span class="bu">String</span> sort) {</a>
+<a class="sourceLine" id="cb19-6" title="6">        User queryCondition = <span class="kw">new</span> <span class="fu">User</span>();</a>
+<a class="sourceLine" id="cb19-7" title="7">        queryCondition.<span class="fu">setAge</span>(<span class="dv">10</span>);</a>
+<a class="sourceLine" id="cb19-8" title="8"></a>
+<a class="sourceLine" id="cb19-9" title="9">        PagingRequest request = SqlPaginations.<span class="fu">preparePagination</span>(pageNo == <span class="kw">null</span> ? <span class="dv">1</span> : pageNo, pageSize == <span class="kw">null</span> ? -<span class="dv">1</span> : pageSize, sort);</a>
+<a class="sourceLine" id="cb19-10" title="10"></a>
+<a class="sourceLine" id="cb19-11" title="11">        <span class="bu">List</span>&lt;User&gt; users = userDao.<span class="fu">selectByLimit</span>(queryCondition);</a>
+<a class="sourceLine" id="cb19-12" title="12">        <span class="bu">String</span> json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(request.<span class="fu">getResult</span>());</a>
+<a class="sourceLine" id="cb19-13" title="13">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb19-14" title="14">        json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(users);</a>
+<a class="sourceLine" id="cb19-15" title="15">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb19-16" title="16">        <span class="kw">return</span> request.<span class="fu">getResult</span>();</a>
+<a class="sourceLine" id="cb19-17" title="17">    }</a></code></pre></div>
+<p>more examples you can find out from <strong>UserController</strong> class in <a href="https://github.com/fangjinuo/sqlhelper/blob/master/sqlhelper-examples/src/main/java/com/jn/sqlhelper/examples/common/controller/UserController.java">sqlhelper-exmples</a></p>
+
+</div>
+</div>
+<div id="sqlhelper_mybatisplus_springboot" class="section level2">
+<h2><span class="header-section-number">5.4</span> MyBatis-plus + Spring Boot Application</h2>
+<hr />
+<div id="sqlhelper_mybatisplus_springboot_installation" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> installation</h3>
+<ol style="list-style-type: decimal">
+<li><p>import dependencies:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">&lt;dependency&gt;</span></a>
+<a class="sourceLine" id="cb20-2" title="2">    <span class="kw">&lt;groupId&gt;</span>com.github.fangjinuo.sqlhelper<span class="kw">&lt;/groupId&gt;</span></a>
+<a class="sourceLine" id="cb20-3" title="3">    <span class="kw">&lt;artifactId&gt;</span>sqlhelper-mybatisplus-spring-boot-starter<span class="kw">&lt;/artifactId&gt;</span></a>
+<a class="sourceLine" id="cb20-4" title="4">    <span class="kw">&lt;version&gt;</span>${sqlhelper.version}<span class="kw">&lt;/version&gt;</span></a>
+<a class="sourceLine" id="cb20-5" title="5"><span class="kw">&lt;/dependency&gt;</span></a></code></pre></div></li>
+<li><p>configure applcation.yml (Optional):</p></li>
+</ol>
+<div class="sourceCode" id="cb21"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb21-1" title="1"><span class="fu">sqlhelper:</span></a>
+<a class="sourceLine" id="cb21-2" title="2">  <span class="fu">mybatis:</span></a>
+<a class="sourceLine" id="cb21-3" title="3">    <span class="fu">instrumentor:</span></a>
+<a class="sourceLine" id="cb21-4" title="4">      <span class="fu">cache-instrumented-sql:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb21-5" title="5">      <span class="fu">subquery-paging-start-flag:</span><span class="at"> </span><span class="st">&quot;[PAGING_StART]&quot;</span></a>
+<a class="sourceLine" id="cb21-6" title="6">      <span class="fu">subquery-paging-end-flag:</span><span class="at"> </span><span class="st">&quot;[PAGING_END]&quot;</span></a>
+<a class="sourceLine" id="cb21-7" title="7">    <span class="fu">pagination:</span></a>
+<a class="sourceLine" id="cb21-8" title="8">      <span class="fu">count:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb21-9" title="9">      <span class="fu">default-page-size:</span><span class="at"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb21-10" title="10">      <span class="fu">use-last-page-if-page-no-out:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb21-11" title="11">      <span class="fu">count-suffix:</span><span class="at"> _COUNT</span></a></code></pre></div>
+<p>or configure application.properteis (Optional)</p>
+<pre class="properties"><code>sqlhelper.mybatis.instrumentor.cacheInstrumentedSql=true
+sqlhelper.mybatis.instrumentor.dialect=mysql
+sqlhelper.mybatis.instrumentor.subqueryPagingStartFlag=[PAGING_START]
+sqlhelper.mybatis.instrumentor.subqueryPagingEndFlag=[PAGING_END]
+sqlhelper.mybatis.count= true
+sqlhelper.mybatis.defaultPageSize= 10
+sqlhelper.mybatis.countSuffix=_COUNT</code></pre>
+<p>more configuration reference : <a href="sqlhelper-pagination.html#pagination_configuration">Paginagion Configuration</a>、<a href="sqlhelper-pagination.html#sqlhelper_mybatis_configuration">Mybatis specified configuration</a></p>
+</div>
+<div id="pagination_mybatisplus_usage" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Usage</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb23-1" title="1">    <span class="at">@GetMapping</span>(<span class="st">&quot;/_useMyBatis&quot;</span>)</a>
+<a class="sourceLine" id="cb23-2" title="2">    <span class="kw">public</span> PagingResult <span class="fu">list_useMyBatis</span>(</a>
+<a class="sourceLine" id="cb23-3" title="3">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageNo&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageNo,</a>
+<a class="sourceLine" id="cb23-4" title="4">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageSize&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageSize,</a>
+<a class="sourceLine" id="cb23-5" title="5">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;sort&quot;</span>, required = <span class="kw">false</span>) <span class="bu">String</span> sort) {</a>
+<a class="sourceLine" id="cb23-6" title="6">        User queryCondition = <span class="kw">new</span> <span class="fu">User</span>();</a>
+<a class="sourceLine" id="cb23-7" title="7">        queryCondition.<span class="fu">setAge</span>(<span class="dv">10</span>);</a>
+<a class="sourceLine" id="cb23-8" title="8"></a>
+<a class="sourceLine" id="cb23-9" title="9">        PagingRequest request = SqlPaginations.<span class="fu">preparePagination</span>(pageNo == <span class="kw">null</span> ? <span class="dv">1</span> : pageNo, pageSize == <span class="kw">null</span> ? -<span class="dv">1</span> : pageSize, sort);</a>
+<a class="sourceLine" id="cb23-10" title="10"></a>
+<a class="sourceLine" id="cb23-11" title="11">        <span class="bu">List</span>&lt;User&gt; users = userDao.<span class="fu">selectByLimit</span>(queryCondition);</a>
+<a class="sourceLine" id="cb23-12" title="12">        <span class="bu">String</span> json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(request.<span class="fu">getResult</span>());</a>
+<a class="sourceLine" id="cb23-13" title="13">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb23-14" title="14">        json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(users);</a>
+<a class="sourceLine" id="cb23-15" title="15">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb23-16" title="16">        <span class="kw">return</span> request.<span class="fu">getResult</span>();</a>
+<a class="sourceLine" id="cb23-17" title="17">    }</a></code></pre></div>
+<p>more examples you can find out from <strong>UserController</strong> class in <a href="https://github.com/fangjinuo/sqlhelper/blob/master/sqlhelper-examples/src/main/java/com/jn/sqlhelper/examples/common/controller/UserController.java">sqlhelper-exmples</a></p>
+
+</div>
+</div>
+<div id="sqlhelper_mirgate_pagehelper" class="section level2">
+<h2><span class="header-section-number">5.5</span> Migrate from PageHelper</h2>
+<div id="pagination_migrate_pagehelper" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> installation</h3>
+<ul>
+<li><strong>case 1 : mybatis + mybatisPageHelper</strong></li>
+</ul>
+<p>if your application is (mybatis + mybatisPageHelper ) , migrate your application to sqlhelper, just do this:</p>
+<ol style="list-style-type: decimal">
+<li>remove pageHelper dependency</li>
+<li>add sqlhelper dependency:</li>
+</ol>
+<div class="sourceCode" id="cb24"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb24-1" title="1">  <span class="kw">&lt;dependency&gt;</span></a>
+<a class="sourceLine" id="cb24-2" title="2">    <span class="kw">&lt;groupId&gt;</span>com.github.fangjinuo.sqlhelper<span class="kw">&lt;/groupId&gt;</span></a>
+<a class="sourceLine" id="cb24-3" title="3">    <span class="kw">&lt;artifactId&gt;</span>sqlhelper-mybatis-over-pagehelper<span class="kw">&lt;/artifactId&gt;</span></a>
+<a class="sourceLine" id="cb24-4" title="4">    <span class="kw">&lt;version&gt;</span>${project.version}<span class="kw">&lt;/version&gt;</span></a>
+<a class="sourceLine" id="cb24-5" title="5">  <span class="kw">&lt;/dependency&gt;</span></a></code></pre></div>
+<ul>
+<li><strong>case 2 : mybatis-plus + mybatisPageHelper </strong>
+<ol style="list-style-type: decimal">
+<li>remove pageHelper dependency</li>
+<li>remove all mybatis-plus dependencies</li>
+<li>add sqlhelper dependencies:</li>
+</ol></li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb25-1" title="1">  <span class="kw">&lt;dependency&gt;</span></a>
+<a class="sourceLine" id="cb25-2" title="2">    <span class="kw">&lt;groupId&gt;</span>com.github.fangjinuo.sqlhelper<span class="kw">&lt;/groupId&gt;</span></a>
+<a class="sourceLine" id="cb25-3" title="3">    <span class="kw">&lt;artifactId&gt;</span>sqlhelper-mybatis-over-pagehelper<span class="kw">&lt;/artifactId&gt;</span></a>
+<a class="sourceLine" id="cb25-4" title="4">    <span class="kw">&lt;version&gt;</span>${project.version}<span class="kw">&lt;/version&gt;</span></a>
+<a class="sourceLine" id="cb25-5" title="5">  <span class="kw">&lt;/dependency&gt;</span></a>
+<a class="sourceLine" id="cb25-6" title="6">  </a>
+<a class="sourceLine" id="cb25-7" title="7">  <span class="kw">&lt;dependency&gt;</span></a>
+<a class="sourceLine" id="cb25-8" title="8">     <span class="kw">&lt;groupId&gt;</span>com.github.fangjinuo.sqlhelper<span class="kw">&lt;/groupId&gt;</span></a>
+<a class="sourceLine" id="cb25-9" title="9">     <span class="kw">&lt;artifactId&gt;</span>sqlhelper-mybatisplus-spring-boot-starter<span class="kw">&lt;/artifactId&gt;</span></a>
+<a class="sourceLine" id="cb25-10" title="10">     <span class="kw">&lt;version&gt;</span>${sqlhelper.version}<span class="kw">&lt;/version&gt;</span></a>
+<a class="sourceLine" id="cb25-11" title="11">  <span class="kw">&lt;/dependency&gt;</span></a></code></pre></div>
+<p>more configuration reference : <a href="sqlhelper-pagination.html#pagination_configuration">Paginagion Configuration</a>、<a href="sqlhelper-pagination.html#sqlhelper_mybatis_configuration">Mybatis specified configuration</a></p>
+
+</div>
+</div>
+<div id="sqlhelper_springjdbc" class="section level2">
+<h2><span class="header-section-number">5.6</span> SpringJDBC Application</h2>
+<div id="pagination_springjdbc_installation" class="section level3">
+<h3><span class="header-section-number">5.6.1</span> installation</h3>
+<ol style="list-style-type: decimal">
+<li><p>import dependencies:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">&lt;dependency&gt;</span></a>
+<a class="sourceLine" id="cb26-2" title="2">    <span class="kw">&lt;groupId&gt;</span>com.github.fangjinuo.sqlhelper<span class="kw">&lt;/groupId&gt;</span></a>
+<a class="sourceLine" id="cb26-3" title="3">    <span class="kw">&lt;artifactId&gt;</span>sqlhelper-springjdbc-spring-boot-starter<span class="kw">&lt;/artifactId&gt;</span></a>
+<a class="sourceLine" id="cb26-4" title="4">    <span class="kw">&lt;version&gt;</span>${sqlhelper.version}<span class="kw">&lt;/version&gt;</span></a>
+<a class="sourceLine" id="cb26-5" title="5"><span class="kw">&lt;/dependency&gt;</span></a></code></pre></div></li>
+<li><p>configure applcation.yml (Optional):</p></li>
+</ol>
+<div class="sourceCode" id="cb27"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb27-1" title="1"><span class="fu">sqlhelper:</span></a>
+<a class="sourceLine" id="cb27-2" title="2">  <span class="fu">springjdbc:</span></a>
+<a class="sourceLine" id="cb27-3" title="3">    <span class="fu">instrumentor:</span></a>
+<a class="sourceLine" id="cb27-4" title="4">      <span class="fu">cache-instrumented-sql:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb27-5" title="5">      <span class="fu">subquery-paging-start-flag:</span><span class="at"> </span><span class="st">&quot;[PAGING_StART]&quot;</span></a>
+<a class="sourceLine" id="cb27-6" title="6">      <span class="fu">subquery-paging-end-flag:</span><span class="at"> </span><span class="st">&quot;[PAGING_END]&quot;</span></a>
+<a class="sourceLine" id="cb27-7" title="7">    <span class="fu">pagination:</span></a>
+<a class="sourceLine" id="cb27-8" title="8">      <span class="fu">count:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb27-9" title="9">      <span class="fu">default-page-size:</span><span class="at"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb27-10" title="10">      <span class="fu">use-last-page-if-page-no-out:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb27-11" title="11">      <span class="fu">count-suffix:</span><span class="at"> _COUNT</span></a></code></pre></div>
+<p>or configure application.properteis (Optional)</p>
+<pre class="properties"><code>sqlhelper.springjdbc.instrumentor.cacheInstrumentedSql=true
+sqlhelper.springjdbc.instrumentor.dialect=mysql
+sqlhelper.springjdbc.instrumentor.subqueryPagingStartFlag=[PAGING_START]
+sqlhelper.springjdbc.instrumentor.subqueryPagingEndFlag=[PAGING_END]
+sqlhelper.springjdbc.count= true
+sqlhelper.springjdbc.defaultPageSize= 10
+sqlhelper.springjdbc.countSuffix=_COUNT</code></pre>
+<p>more configuration reference : <a href="sqlhelper-pagination.html#pagination_configuration">Paginagion Configuration</a></p>
+</div>
+<div id="pagination_springjdbc_usage" class="section level3">
+<h3><span class="header-section-number">5.6.2</span> Usage</h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb29-1" title="1">    </a>
+<a class="sourceLine" id="cb29-2" title="2">    <span class="kw">import</span><span class="im"> com.jn.sqlhelper.springjdbc.JdbcTemplate;</span></a>
+<a class="sourceLine" id="cb29-3" title="3">    <span class="kw">import</span><span class="im"> com.jn.sqlhelper.springjdbc.NamedParameterJdbcTemplate;</span></a>
+<a class="sourceLine" id="cb29-4" title="4">    <span class="kw">import</span><span class="im"> com.jn.sqlhelper.springjdbc.resultset.SqlHelperRowMapperResultSetExtractor;</span></a>
+<a class="sourceLine" id="cb29-5" title="5">    </a>
+<a class="sourceLine" id="cb29-6" title="6">    <span class="at">@Autowired</span></a>
+<a class="sourceLine" id="cb29-7" title="7">    <span class="kw">private</span> JdbcTemplate jdbcTemplate;</a>
+<a class="sourceLine" id="cb29-8" title="8"></a>
+<a class="sourceLine" id="cb29-9" title="9">    <span class="at">@Autowired</span></a>
+<a class="sourceLine" id="cb29-10" title="10">    <span class="kw">private</span> NamedParameterJdbcTemplate namedJdbcTemplate;</a>
+<a class="sourceLine" id="cb29-11" title="11">    </a>
+<a class="sourceLine" id="cb29-12" title="12">    </a>
+<a class="sourceLine" id="cb29-13" title="13">    <span class="at">@GetMapping</span>(<span class="st">&quot;/subqueryPagination_useMyBatis&quot;</span>)</a>
+<a class="sourceLine" id="cb29-14" title="14">    <span class="kw">public</span> PagingResult <span class="fu">subqueryPagination_useMyBatis</span>(</a>
+<a class="sourceLine" id="cb29-15" title="15">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageNo&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageNo,</a>
+<a class="sourceLine" id="cb29-16" title="16">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageSize&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageSize,</a>
+<a class="sourceLine" id="cb29-17" title="17">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;sort&quot;</span>, required = <span class="kw">false</span>) <span class="bu">String</span> sort,</a>
+<a class="sourceLine" id="cb29-18" title="18">            <span class="at">@RequestParam</span>(value = <span class="st">&quot;count&quot;</span>, required = <span class="kw">false</span>) <span class="dt">boolean</span> count,</a>
+<a class="sourceLine" id="cb29-19" title="19">            <span class="at">@RequestParam</span>(value = <span class="st">&quot;useLastPageIfPageNoOut&quot;</span>, required = <span class="kw">false</span>) <span class="dt">boolean</span> useLastPageIfPageNoOut) {</a>
+<a class="sourceLine" id="cb29-20" title="20">        User queryCondition = <span class="kw">new</span> <span class="fu">User</span>();</a>
+<a class="sourceLine" id="cb29-21" title="21">        queryCondition.<span class="fu">setAge</span>(<span class="dv">10</span>);</a>
+<a class="sourceLine" id="cb29-22" title="22">        queryCondition.<span class="fu">setName</span>(<span class="st">&quot;zhangsan_&quot;</span>);</a>
+<a class="sourceLine" id="cb29-23" title="23"></a>
+<a class="sourceLine" id="cb29-24" title="24"></a>
+<a class="sourceLine" id="cb29-25" title="25">        PagingRequest request = SqlPaginations.<span class="fu">preparePagination</span>(pageNo == <span class="kw">null</span> ? <span class="dv">1</span> : pageNo, pageSize == <span class="kw">null</span> ? -<span class="dv">1</span> : pageSize, sort);</a>
+<a class="sourceLine" id="cb29-26" title="26">        request.<span class="fu">subqueryPaging</span>(<span class="kw">true</span>);</a>
+<a class="sourceLine" id="cb29-27" title="27">        request.<span class="fu">setCount</span>(count);</a>
+<a class="sourceLine" id="cb29-28" title="28">        request.<span class="fu">setUseLastPageIfPageNoOut</span>(useLastPageIfPageNoOut);</a>
+<a class="sourceLine" id="cb29-29" title="29">        <span class="bu">List</span>&lt;User&gt; users = userDao.<span class="fu">selectByLimit_subqueryPagination</span>(queryCondition);</a>
+<a class="sourceLine" id="cb29-30" title="30">        <span class="bu">String</span> json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(request.<span class="fu">getResult</span>());</a>
+<a class="sourceLine" id="cb29-31" title="31">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb29-32" title="32">        json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(users);</a>
+<a class="sourceLine" id="cb29-33" title="33">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb29-34" title="34">        <span class="kw">return</span> request.<span class="fu">getResult</span>();</a>
+<a class="sourceLine" id="cb29-35" title="35">    }</a>
+<a class="sourceLine" id="cb29-36" title="36"></a>
+<a class="sourceLine" id="cb29-37" title="37">    <span class="at">@GetMapping</span>(<span class="st">&quot;/_useSpringJdbc_rowMapper&quot;</span>)</a>
+<a class="sourceLine" id="cb29-38" title="38">    <span class="kw">public</span> PagingResult <span class="fu">list_useSpringJdbc_rowMapper</span>(</a>
+<a class="sourceLine" id="cb29-39" title="39">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageNo&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageNo,</a>
+<a class="sourceLine" id="cb29-40" title="40">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageSize&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageSize,</a>
+<a class="sourceLine" id="cb29-41" title="41">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;sort&quot;</span>, required = <span class="kw">false</span>) <span class="bu">String</span> sort,</a>
+<a class="sourceLine" id="cb29-42" title="42">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;count&quot;</span>, required = <span class="kw">false</span>) <span class="dt">boolean</span> count,</a>
+<a class="sourceLine" id="cb29-43" title="43">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;useLastPageIfPageNoOut&quot;</span>, required = <span class="kw">false</span>) <span class="dt">boolean</span> useLastPageIfPageNoOut,</a>
+<a class="sourceLine" id="cb29-44" title="44">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;testSubquery&quot;</span>, required = <span class="kw">false</span>, defaultValue = <span class="st">&quot;false&quot;</span>) <span class="dt">boolean</span> testSubquery) {</a>
+<a class="sourceLine" id="cb29-45" title="45">        PagingRequest request = SqlPaginations.<span class="fu">preparePagination</span>(pageNo == <span class="kw">null</span> ? <span class="dv">1</span> : pageNo, pageSize == <span class="kw">null</span> ? -<span class="dv">1</span> : pageSize, sort);</a>
+<a class="sourceLine" id="cb29-46" title="46">        request.<span class="fu">setCount</span>(count);</a>
+<a class="sourceLine" id="cb29-47" title="47">        request.<span class="fu">setUseLastPageIfPageNoOut</span>(useLastPageIfPageNoOut);</a>
+<a class="sourceLine" id="cb29-48" title="48">        <span class="kw">if</span> (testSubquery) {</a>
+<a class="sourceLine" id="cb29-49" title="49">            request.<span class="fu">subqueryPaging</span>(<span class="kw">true</span>);</a>
+<a class="sourceLine" id="cb29-50" title="50">        }</a>
+<a class="sourceLine" id="cb29-51" title="51">        <span class="bu">StringBuilder</span> sqlBuilder = testSubquery ? <span class="kw">new</span> <span class="bu">StringBuilder</span>(<span class="st">&quot;select * from ([PAGING_START]select ID, NAME, AGE from USER where 1=1 and age &gt; 10[PAGING_END]) n where name like &#39;zhangsan%&#39; &quot;</span>) : <span class="kw">new</span> <span class="bu">StringBuilder</span>(<span class="st">&quot;select ID, NAME, AGE from USER where 1=1 and age &gt; 10&quot;</span>);</a>
+<a class="sourceLine" id="cb29-52" title="52">        <span class="bu">List</span>&lt;User&gt; users = jdbcTemplate.<span class="fu">query</span>(sqlBuilder.<span class="fu">toString</span>(), <span class="kw">new</span> <span class="bu">RowMapper</span>&lt;User&gt;() {</a>
+<a class="sourceLine" id="cb29-53" title="53">            <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb29-54" title="54">            <span class="kw">public</span> User <span class="fu">mapRow</span>(<span class="bu">ResultSet</span> rs, <span class="dt">int</span> rowNum) <span class="kw">throws</span> <span class="bu">SQLException</span> {</a>
+<a class="sourceLine" id="cb29-55" title="55">                User u = <span class="kw">new</span> <span class="fu">User</span>();</a>
+<a class="sourceLine" id="cb29-56" title="56">                u.<span class="fu">setId</span>(rs.<span class="fu">getString</span>(<span class="st">&quot;ID&quot;</span>));</a>
+<a class="sourceLine" id="cb29-57" title="57">                u.<span class="fu">setName</span>(rs.<span class="fu">getString</span>(<span class="st">&quot;NAME&quot;</span>));</a>
+<a class="sourceLine" id="cb29-58" title="58">                u.<span class="fu">setAge</span>(rs.<span class="fu">getInt</span>(<span class="st">&quot;AGE&quot;</span>));</a>
+<a class="sourceLine" id="cb29-59" title="59">                <span class="kw">return</span> u;</a>
+<a class="sourceLine" id="cb29-60" title="60">            }</a>
+<a class="sourceLine" id="cb29-61" title="61">        });</a>
+<a class="sourceLine" id="cb29-62" title="62">        <span class="bu">String</span> json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(users);</a>
+<a class="sourceLine" id="cb29-63" title="63">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb29-64" title="64">        <span class="kw">return</span> request.<span class="fu">getResult</span>();</a>
+<a class="sourceLine" id="cb29-65" title="65">    }</a>
+<a class="sourceLine" id="cb29-66" title="66"></a>
+<a class="sourceLine" id="cb29-67" title="67">    <span class="at">@GetMapping</span>(<span class="st">&quot;/_useSpringJdbc_pSetter_rExecutor&quot;</span>)</a>
+<a class="sourceLine" id="cb29-68" title="68">    <span class="kw">public</span> PagingResult <span class="fu">list__useSpringJdbc_pSetter_rExecutor</span>(</a>
+<a class="sourceLine" id="cb29-69" title="69">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageNo&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageNo,</a>
+<a class="sourceLine" id="cb29-70" title="70">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageSize&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageSize,</a>
+<a class="sourceLine" id="cb29-71" title="71">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;sort&quot;</span>, required = <span class="kw">false</span>) <span class="bu">String</span> sort) {</a>
+<a class="sourceLine" id="cb29-72" title="72">        PagingRequest request = SqlPaginations.<span class="fu">preparePagination</span>(pageNo == <span class="kw">null</span> ? <span class="dv">1</span> : pageNo, pageSize == <span class="kw">null</span> ? -<span class="dv">1</span> : pageSize, sort);</a>
+<a class="sourceLine" id="cb29-73" title="73">        <span class="bu">StringBuilder</span> sqlBuilder = <span class="kw">new</span> <span class="bu">StringBuilder</span>(<span class="st">&quot;select ID, NAME, AGE from USER where 1=1 and age &gt; ?&quot;</span>);</a>
+<a class="sourceLine" id="cb29-74" title="74">        <span class="bu">List</span>&lt;User&gt; users = jdbcTemplate.<span class="fu">query</span>(sqlBuilder.<span class="fu">toString</span>(), <span class="kw">new</span> <span class="fu">PreparedStatementSetter</span>() {</a>
+<a class="sourceLine" id="cb29-75" title="75">            <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb29-76" title="76">            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setValues</span>(<span class="bu">PreparedStatement</span> ps) <span class="kw">throws</span> <span class="bu">SQLException</span> {</a>
+<a class="sourceLine" id="cb29-77" title="77">                ps.<span class="fu">setInt</span>(<span class="dv">1</span>, <span class="dv">10</span>);</a>
+<a class="sourceLine" id="cb29-78" title="78">            }</a>
+<a class="sourceLine" id="cb29-79" title="79">        }, <span class="kw">new</span> ResultSetExtractor&lt;<span class="bu">List</span>&lt;User&gt;&gt;() {</a>
+<a class="sourceLine" id="cb29-80" title="80">            <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb29-81" title="81">            <span class="kw">public</span> <span class="bu">List</span>&lt;User&gt; <span class="fu">extractData</span>(<span class="bu">ResultSet</span> rs) <span class="kw">throws</span> <span class="bu">SQLException</span>, DataAccessException {</a>
+<a class="sourceLine" id="cb29-82" title="82">                <span class="bu">List</span>&lt;User&gt; users = <span class="kw">new</span> <span class="bu">ArrayList</span>&lt;&gt;();</a>
+<a class="sourceLine" id="cb29-83" title="83">                <span class="kw">while</span> (rs.<span class="fu">next</span>()) {</a>
+<a class="sourceLine" id="cb29-84" title="84">                    User u = <span class="kw">new</span> <span class="fu">User</span>();</a>
+<a class="sourceLine" id="cb29-85" title="85">                    u.<span class="fu">setId</span>(rs.<span class="fu">getString</span>(<span class="st">&quot;ID&quot;</span>));</a>
+<a class="sourceLine" id="cb29-86" title="86">                    u.<span class="fu">setName</span>(rs.<span class="fu">getString</span>(<span class="st">&quot;NAME&quot;</span>));</a>
+<a class="sourceLine" id="cb29-87" title="87">                    u.<span class="fu">setAge</span>(rs.<span class="fu">getInt</span>(<span class="st">&quot;AGE&quot;</span>));</a>
+<a class="sourceLine" id="cb29-88" title="88">                    users.<span class="fu">add</span>(u);</a>
+<a class="sourceLine" id="cb29-89" title="89">                }</a>
+<a class="sourceLine" id="cb29-90" title="90">                <span class="kw">return</span> users;</a>
+<a class="sourceLine" id="cb29-91" title="91">            }</a>
+<a class="sourceLine" id="cb29-92" title="92">        });</a>
+<a class="sourceLine" id="cb29-93" title="93">        <span class="bu">String</span> json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(request.<span class="fu">getResult</span>());</a>
+<a class="sourceLine" id="cb29-94" title="94">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb29-95" title="95">        <span class="kw">return</span> request.<span class="fu">getResult</span>();</a>
+<a class="sourceLine" id="cb29-96" title="96">    }</a>
+<a class="sourceLine" id="cb29-97" title="97"></a>
+<a class="sourceLine" id="cb29-98" title="98">    <span class="at">@GetMapping</span>(<span class="st">&quot;/_useSpringJdbc_args_rExecutor&quot;</span>)</a>
+<a class="sourceLine" id="cb29-99" title="99">    <span class="kw">public</span> PagingResult <span class="fu">list__useSpringJdbc_args_rExecutor</span>(</a>
+<a class="sourceLine" id="cb29-100" title="100">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageNo&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageNo,</a>
+<a class="sourceLine" id="cb29-101" title="101">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageSize&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageSize,</a>
+<a class="sourceLine" id="cb29-102" title="102">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;sort&quot;</span>, required = <span class="kw">false</span>) <span class="bu">String</span> sort,</a>
+<a class="sourceLine" id="cb29-103" title="103">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;testSubquery&quot;</span>, required = <span class="kw">false</span>, defaultValue = <span class="st">&quot;false&quot;</span>) <span class="dt">boolean</span> testSubquery) {</a>
+<a class="sourceLine" id="cb29-104" title="104">        PagingRequest request = SqlPaginations.<span class="fu">preparePagination</span>(pageNo == <span class="kw">null</span> ? <span class="dv">1</span> : pageNo, pageSize == <span class="kw">null</span> ? -<span class="dv">1</span> : pageSize, sort);</a>
+<a class="sourceLine" id="cb29-105" title="105"></a>
+<a class="sourceLine" id="cb29-106" title="106">        <span class="kw">if</span> (testSubquery) {</a>
+<a class="sourceLine" id="cb29-107" title="107">            request.<span class="fu">subqueryPaging</span>(<span class="kw">true</span>);</a>
+<a class="sourceLine" id="cb29-108" title="108">        }</a>
+<a class="sourceLine" id="cb29-109" title="109">        <span class="bu">StringBuilder</span> sqlBuilder = testSubquery ? <span class="kw">new</span> <span class="bu">StringBuilder</span>(<span class="st">&quot;select * from ([PAGING_START]select ID, NAME, AGE from USER where 1=1 and age &gt; ?[PAGING_END]) n where name like CONCAT(?,&#39;%&#39;) &quot;</span>) : <span class="kw">new</span> <span class="bu">StringBuilder</span>(<span class="st">&quot;select ID, NAME, AGE from USER where 1=1 and age &gt; ?&quot;</span>);</a>
+<a class="sourceLine" id="cb29-110" title="110"></a>
+<a class="sourceLine" id="cb29-111" title="111">        <span class="bu">Object</span>[] args = testSubquery ? <span class="kw">new</span> <span class="bu">Object</span>[]{<span class="dv">10</span>, <span class="st">&quot;zhangsan&quot;</span>} : <span class="kw">new</span> <span class="bu">Object</span>[]{<span class="dv">10</span>};</a>
+<a class="sourceLine" id="cb29-112" title="112">        <span class="bu">List</span>&lt;User&gt; users = jdbcTemplate.<span class="fu">query</span>(sqlBuilder.<span class="fu">toString</span>(), args, <span class="kw">new</span> ResultSetExtractor&lt;<span class="bu">List</span>&lt;User&gt;&gt;() {</a>
+<a class="sourceLine" id="cb29-113" title="113">            <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb29-114" title="114">            <span class="kw">public</span> <span class="bu">List</span>&lt;User&gt; <span class="fu">extractData</span>(<span class="bu">ResultSet</span> rs) <span class="kw">throws</span> <span class="bu">SQLException</span>, DataAccessException {</a>
+<a class="sourceLine" id="cb29-115" title="115">                <span class="bu">List</span>&lt;User&gt; users = <span class="kw">new</span> <span class="bu">ArrayList</span>&lt;&gt;();</a>
+<a class="sourceLine" id="cb29-116" title="116">                <span class="kw">while</span> (rs.<span class="fu">next</span>()) {</a>
+<a class="sourceLine" id="cb29-117" title="117">                    User u = <span class="kw">new</span> <span class="fu">User</span>();</a>
+<a class="sourceLine" id="cb29-118" title="118">                    u.<span class="fu">setId</span>(rs.<span class="fu">getString</span>(<span class="st">&quot;ID&quot;</span>));</a>
+<a class="sourceLine" id="cb29-119" title="119">                    u.<span class="fu">setName</span>(rs.<span class="fu">getString</span>(<span class="st">&quot;NAME&quot;</span>));</a>
+<a class="sourceLine" id="cb29-120" title="120">                    u.<span class="fu">setAge</span>(rs.<span class="fu">getInt</span>(<span class="st">&quot;AGE&quot;</span>));</a>
+<a class="sourceLine" id="cb29-121" title="121">                    users.<span class="fu">add</span>(u);</a>
+<a class="sourceLine" id="cb29-122" title="122">                }</a>
+<a class="sourceLine" id="cb29-123" title="123">                <span class="kw">return</span> users;</a>
+<a class="sourceLine" id="cb29-124" title="124">            }</a>
+<a class="sourceLine" id="cb29-125" title="125">        });</a>
+<a class="sourceLine" id="cb29-126" title="126">        <span class="bu">String</span> json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(request.<span class="fu">getResult</span>());</a>
+<a class="sourceLine" id="cb29-127" title="127">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb29-128" title="128">        <span class="kw">return</span> request.<span class="fu">getResult</span>();</a>
+<a class="sourceLine" id="cb29-129" title="129">    }</a>
+<a class="sourceLine" id="cb29-130" title="130"></a>
+<a class="sourceLine" id="cb29-131" title="131">    <span class="at">@GetMapping</span>(<span class="st">&quot;/custom_BeanRowMapperTests&quot;</span>)</a>
+<a class="sourceLine" id="cb29-132" title="132">    <span class="kw">public</span> PagingResult <span class="fu">custom_BeanRowMapperTests</span>(</a>
+<a class="sourceLine" id="cb29-133" title="133">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageNo&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageNo,</a>
+<a class="sourceLine" id="cb29-134" title="134">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageSize&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageSize,</a>
+<a class="sourceLine" id="cb29-135" title="135">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;sort&quot;</span>, required = <span class="kw">false</span>) <span class="bu">String</span> sort) {</a>
+<a class="sourceLine" id="cb29-136" title="136">        PagingRequest request = SqlPaginations.<span class="fu">preparePagination</span>(pageNo == <span class="kw">null</span> ? <span class="dv">1</span> : pageNo, pageSize == <span class="kw">null</span> ? -<span class="dv">1</span> : pageSize, sort);</a>
+<a class="sourceLine" id="cb29-137" title="137">        <span class="bu">StringBuilder</span> sqlBuilder = <span class="kw">new</span> <span class="bu">StringBuilder</span>(<span class="st">&quot;select ID, NAME, AGE from USER where 1=1 and age &gt; ?&quot;</span>);</a>
+<a class="sourceLine" id="cb29-138" title="138"></a>
+<a class="sourceLine" id="cb29-139" title="139">        BeanRowMapper&lt;User&gt; beanRowMapper = <span class="kw">new</span> <span class="fu">BeanRowMapper</span>(User.<span class="fu">class</span>);</a>
+<a class="sourceLine" id="cb29-140" title="140">        <span class="bu">List</span>&lt;User&gt; users = jdbcTemplate.<span class="fu">query</span>(sqlBuilder.<span class="fu">toString</span>(), <span class="kw">new</span> <span class="fu">PreparedStatementSetter</span>() {</a>
+<a class="sourceLine" id="cb29-141" title="141">            <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb29-142" title="142">            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setValues</span>(<span class="bu">PreparedStatement</span> ps) <span class="kw">throws</span> <span class="bu">SQLException</span> {</a>
+<a class="sourceLine" id="cb29-143" title="143">                ps.<span class="fu">setInt</span>(<span class="dv">1</span>, <span class="dv">10</span>);</a>
+<a class="sourceLine" id="cb29-144" title="144">            }</a>
+<a class="sourceLine" id="cb29-145" title="145">        }, <span class="kw">new</span> SqlHelperRowMapperResultSetExtractor&lt;User&gt;(beanRowMapper));</a>
+<a class="sourceLine" id="cb29-146" title="146">        <span class="bu">String</span> json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(request.<span class="fu">getResult</span>());</a>
+<a class="sourceLine" id="cb29-147" title="147">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb29-148" title="148">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(users));</a>
+<a class="sourceLine" id="cb29-149" title="149">        <span class="kw">return</span> request.<span class="fu">getResult</span>();</a>
+<a class="sourceLine" id="cb29-150" title="150">    }</a>
+<a class="sourceLine" id="cb29-151" title="151"></a>
+<a class="sourceLine" id="cb29-152" title="152">    <span class="at">@GetMapping</span>(<span class="st">&quot;/_useSpringJdbcNamedTemplate&quot;</span>)</a>
+<a class="sourceLine" id="cb29-153" title="153">    <span class="kw">public</span> PagingResult <span class="fu">list_useSpringJdbcNamedTemplate</span>(</a>
+<a class="sourceLine" id="cb29-154" title="154">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageNo&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageNo,</a>
+<a class="sourceLine" id="cb29-155" title="155">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageSize&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageSize,</a>
+<a class="sourceLine" id="cb29-156" title="156">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;sort&quot;</span>, required = <span class="kw">false</span>) <span class="bu">String</span> sort,</a>
+<a class="sourceLine" id="cb29-157" title="157">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;testSubquery&quot;</span>, required = <span class="kw">false</span>, defaultValue = <span class="st">&quot;false&quot;</span>) <span class="dt">boolean</span> testSubquery) {</a>
+<a class="sourceLine" id="cb29-158" title="158">        PagingRequest request = SqlPaginations.<span class="fu">preparePagination</span>(pageNo == <span class="kw">null</span> ? <span class="dv">1</span> : pageNo, pageSize == <span class="kw">null</span> ? -<span class="dv">1</span> : pageSize, sort);</a>
+<a class="sourceLine" id="cb29-159" title="159">        <span class="kw">if</span> (testSubquery) {</a>
+<a class="sourceLine" id="cb29-160" title="160">            request.<span class="fu">subqueryPaging</span>(<span class="kw">true</span>);</a>
+<a class="sourceLine" id="cb29-161" title="161">        }</a>
+<a class="sourceLine" id="cb29-162" title="162">        <span class="bu">StringBuilder</span> sqlBuilder = testSubquery ? <span class="kw">new</span> <span class="bu">StringBuilder</span>(<span class="st">&quot;select * from ([PAGING_START]select ID, NAME, AGE from USER where 1=1 and age &gt; :age [PAGING_END]) n where name like CONCAT(:name,&#39;%&#39;) &quot;</span>) : <span class="kw">new</span> <span class="bu">StringBuilder</span>(<span class="st">&quot;select ID, NAME, AGE from USER where 1=1 and age &gt; :age&quot;</span>);</a>
+<a class="sourceLine" id="cb29-163" title="163"></a>
+<a class="sourceLine" id="cb29-164" title="164">        <span class="bu">Map</span>&lt;<span class="bu">String</span>, <span class="bu">Object</span>&gt; paramMap = <span class="kw">new</span> <span class="bu">HashMap</span>&lt;&gt;();</a>
+<a class="sourceLine" id="cb29-165" title="165">        paramMap.<span class="fu">put</span>(<span class="st">&quot;age&quot;</span>, <span class="dv">10</span>);</a>
+<a class="sourceLine" id="cb29-166" title="166">        paramMap.<span class="fu">put</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;zhangsan&quot;</span>);</a>
+<a class="sourceLine" id="cb29-167" title="167"></a>
+<a class="sourceLine" id="cb29-168" title="168">        <span class="bu">List</span>&lt;User&gt; users = namedJdbcTemplate.<span class="fu">query</span>(sqlBuilder.<span class="fu">toString</span>(), paramMap, <span class="kw">new</span> <span class="bu">RowMapper</span>&lt;User&gt;() {</a>
+<a class="sourceLine" id="cb29-169" title="169">            <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb29-170" title="170">            <span class="kw">public</span> User <span class="fu">mapRow</span>(<span class="bu">ResultSet</span> rs, <span class="dt">int</span> rowNum) <span class="kw">throws</span> <span class="bu">SQLException</span> {</a>
+<a class="sourceLine" id="cb29-171" title="171">                User u = <span class="kw">new</span> <span class="fu">User</span>();</a>
+<a class="sourceLine" id="cb29-172" title="172">                u.<span class="fu">setId</span>(rs.<span class="fu">getString</span>(<span class="st">&quot;ID&quot;</span>));</a>
+<a class="sourceLine" id="cb29-173" title="173">                u.<span class="fu">setName</span>(rs.<span class="fu">getString</span>(<span class="st">&quot;NAME&quot;</span>));</a>
+<a class="sourceLine" id="cb29-174" title="174">                u.<span class="fu">setAge</span>(rs.<span class="fu">getInt</span>(<span class="st">&quot;AGE&quot;</span>));</a>
+<a class="sourceLine" id="cb29-175" title="175">                <span class="kw">return</span> u;</a>
+<a class="sourceLine" id="cb29-176" title="176">            }</a>
+<a class="sourceLine" id="cb29-177" title="177">        });</a>
+<a class="sourceLine" id="cb29-178" title="178">        <span class="bu">String</span> json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(users);</a>
+<a class="sourceLine" id="cb29-179" title="179">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb29-180" title="180">        <span class="kw">return</span> request.<span class="fu">getResult</span>();</a>
+<a class="sourceLine" id="cb29-181" title="181">    }</a>
+<a class="sourceLine" id="cb29-182" title="182">    </a></code></pre></div>
+<p>you should sqlhelper’s <strong><em>JdbcTemplate</em></strong>, <strong><em>NamedJdbcTemplate</em></strong> instead of springjdbc’s JdbcTemplate,NamedJdbcTemplate</p>
+<p>more examples you can find out from <strong>UserController</strong> class in <a href="https://github.com/fangjinuo/sqlhelper/blob/master/sqlhelper-examples/src/main/java/com/jn/sqlhelper/examples/common/controller/UserController.java">sqlhelper-exmples</a></p>
+
+</div>
+</div>
+<div id="pagination_apache_dbutils" class="section level2">
+<h2><span class="header-section-number">5.7</span> Apache DBUtils Application</h2>
+<div id="pagination_apachedbutils_installation" class="section level3">
+<h3><span class="header-section-number">5.7.1</span> installation</h3>
+<ol style="list-style-type: decimal">
+<li><p>import dependencies:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">&lt;dependency&gt;</span></a>
+<a class="sourceLine" id="cb30-2" title="2">    <span class="kw">&lt;groupId&gt;</span>com.github.fangjinuo.sqlhelper<span class="kw">&lt;/groupId&gt;</span></a>
+<a class="sourceLine" id="cb30-3" title="3">    <span class="kw">&lt;artifactId&gt;</span>sqlhelper-dbutils<span class="kw">&lt;/artifactId&gt;</span></a>
+<a class="sourceLine" id="cb30-4" title="4">    <span class="kw">&lt;version&gt;</span>${sqlhelper.version}<span class="kw">&lt;/version&gt;</span></a>
+<a class="sourceLine" id="cb30-5" title="5"><span class="kw">&lt;/dependency&gt;</span></a></code></pre></div></li>
+</ol>
+<p>more configuration reference : <a href="sqlhelper-pagination.html#pagination_configuration">Paginagion Configuration</a></p>
+</div>
+<div id="pagination_apachedbutils_usage" class="section level3">
+<h3><span class="header-section-number">5.7.2</span> Usage</h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb31-1" title="1">    </a>
+<a class="sourceLine" id="cb31-2" title="2">    <span class="kw">import</span><span class="im"> com.jn.sqlhelper.apachedbutils.QueryRunner;</span></a>
+<a class="sourceLine" id="cb31-3" title="3">    </a>
+<a class="sourceLine" id="cb31-4" title="4">    <span class="at">@GetMapping</span>(<span class="st">&quot;/list_useApacheDBUtils&quot;</span>)</a>
+<a class="sourceLine" id="cb31-5" title="5">    <span class="kw">public</span> PagingResult <span class="fu">list_useApacheDBUtils</span>(</a>
+<a class="sourceLine" id="cb31-6" title="6">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageNo&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageNo,</a>
+<a class="sourceLine" id="cb31-7" title="7">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;pageSize&quot;</span>, required = <span class="kw">false</span>) <span class="bu">Integer</span> pageSize,</a>
+<a class="sourceLine" id="cb31-8" title="8">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;sort&quot;</span>, required = <span class="kw">false</span>) <span class="bu">String</span> sort,</a>
+<a class="sourceLine" id="cb31-9" title="9">            <span class="at">@RequestParam</span>(name = <span class="st">&quot;testSubquery&quot;</span>, required = <span class="kw">false</span>, defaultValue = <span class="st">&quot;false&quot;</span>) <span class="dt">boolean</span> testSubquery) <span class="kw">throws</span> <span class="bu">SQLException</span> {</a>
+<a class="sourceLine" id="cb31-10" title="10">        PagingRequest request = SqlPaginations.<span class="fu">preparePagination</span>(pageNo == <span class="kw">null</span> ? <span class="dv">1</span> : pageNo, pageSize == <span class="kw">null</span> ? -<span class="dv">1</span> : pageSize, sort);</a>
+<a class="sourceLine" id="cb31-11" title="11">        <span class="kw">if</span> (testSubquery) {</a>
+<a class="sourceLine" id="cb31-12" title="12">            request.<span class="fu">subqueryPaging</span>(<span class="kw">true</span>);</a>
+<a class="sourceLine" id="cb31-13" title="13">        }</a>
+<a class="sourceLine" id="cb31-14" title="14">        <span class="bu">StringBuilder</span> sqlBuilder = testSubquery ? <span class="kw">new</span> <span class="bu">StringBuilder</span>(<span class="st">&quot;select * from ([PAGING_START]select ID, NAME, AGE from USER where 1=1 and age &gt; ?[PAGING_END]) n where name like CONCAT(?,&#39;%&#39;) &quot;</span>) : <span class="kw">new</span> <span class="bu">StringBuilder</span>(<span class="st">&quot;select ID, NAME, AGE from USER where 1=1 and age &gt; ?&quot;</span>);</a>
+<a class="sourceLine" id="cb31-15" title="15"></a>
+<a class="sourceLine" id="cb31-16" title="16">        <span class="bu">DataSource</span> ds = namedJdbcTemplate.<span class="fu">getJdbcTemplate</span>().<span class="fu">getDataSource</span>();</a>
+<a class="sourceLine" id="cb31-17" title="17">        QueryRunner queryRunner = <span class="kw">new</span> <span class="fu">QueryRunner</span>(ds);</a>
+<a class="sourceLine" id="cb31-18" title="18"></a>
+<a class="sourceLine" id="cb31-19" title="19">        <span class="bu">List</span>&lt;<span class="bu">Object</span>&gt; params = Collects.<span class="fu">emptyArrayList</span>();</a>
+<a class="sourceLine" id="cb31-20" title="20">        params.<span class="fu">add</span>(<span class="dv">10</span>);</a>
+<a class="sourceLine" id="cb31-21" title="21">        <span class="kw">if</span>(testSubquery){</a>
+<a class="sourceLine" id="cb31-22" title="22">            params.<span class="fu">add</span>(<span class="st">&quot;zhangsan&quot;</span>);</a>
+<a class="sourceLine" id="cb31-23" title="23">        }</a>
+<a class="sourceLine" id="cb31-24" title="24"></a>
+<a class="sourceLine" id="cb31-25" title="25">        <span class="bu">List</span>&lt;User&gt; users = queryRunner.<span class="fu">query</span>(sqlBuilder.<span class="fu">toString</span>(), <span class="kw">new</span> ResultSetHandler&lt;<span class="bu">List</span>&lt;User&gt;&gt;() {</a>
+<a class="sourceLine" id="cb31-26" title="26">            RowMapperResultSetExtractor extractor = <span class="kw">new</span> RowMapperResultSetExtractor&lt;User&gt;(<span class="kw">new</span> BeanRowMapper&lt;User&gt;(User.<span class="fu">class</span>));</a>
+<a class="sourceLine" id="cb31-27" title="27"></a>
+<a class="sourceLine" id="cb31-28" title="28">            <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb31-29" title="29">            <span class="kw">public</span> <span class="bu">List</span>&lt;User&gt; <span class="fu">handle</span>(<span class="bu">ResultSet</span> rs) <span class="kw">throws</span> <span class="bu">SQLException</span> {</a>
+<a class="sourceLine" id="cb31-30" title="30">                <span class="kw">return</span> extractor.<span class="fu">extract</span>(rs);</a>
+<a class="sourceLine" id="cb31-31" title="31">            }</a>
+<a class="sourceLine" id="cb31-32" title="32">        }, Collects.<span class="fu">toArray</span>(params));</a>
+<a class="sourceLine" id="cb31-33" title="33">        <span class="bu">String</span> json = JSONBuilderProvider.<span class="fu">simplest</span>().<span class="fu">toJson</span>(users);</a>
+<a class="sourceLine" id="cb31-34" title="34">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(json);</a>
+<a class="sourceLine" id="cb31-35" title="35">        <span class="kw">return</span> request.<span class="fu">getResult</span>();</a>
+<a class="sourceLine" id="cb31-36" title="36">    }</a>
+<a class="sourceLine" id="cb31-37" title="37">    </a></code></pre></div>
+<p>you should sqlhelper’s <strong><em>QueryRunner</em></strong> instead of apache commons-dbutils’s QueryRunner.</p>
+<p>more examples you can find out from <strong>UserController</strong> class in <a href="https://github.com/fangjinuo/sqlhelper/blob/master/sqlhelper-examples/src/main/java/com/jn/sqlhelper/examples/common/controller/UserController.java">sqlhelper-exmples</a></p>
+
+</div>
+</div>
+<div id="pagination_usage" class="section level2">
+<h2><span class="header-section-number">5.8</span> Usage</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sqlhelper-outline.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": true,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "github", "twitter", "linkedin", "weibo", "instapaper", "vk"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/fangjinuo/book/edit/master/sqlhelper/pagination_configuration.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>
