@@ -1,4 +1,4 @@
-### Chars {#langx-java_references_utils_Chars}
+## Chars {#langx-java_references_utils_Chars}
 
 Char utility methods:
 

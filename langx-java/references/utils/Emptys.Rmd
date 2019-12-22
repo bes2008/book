@@ -1,4 +1,4 @@
-### Emptys {#langx-java_references_utils_Emptys}
+## Emptys {#langx-java_references_utils_Emptys}
 In any java project, you can often see the following code:
 
 ```java

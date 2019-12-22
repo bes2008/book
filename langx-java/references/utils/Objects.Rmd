@@ -1,4 +1,4 @@
-### Objects {#langx-java_references_utils_Objects}
+## Objects {#langx-java_references_utils_Objects}
 
 in java 7 ~ 9 , supply a object utility class: ```java.util.Objects```, many convenient methods in it:
 

@@ -1,4 +1,4 @@
-### Maths {#langx-java_references_utils_Maths}
+## Maths {#langx-java_references_utils_Maths}
 
 Math compute methods:
 

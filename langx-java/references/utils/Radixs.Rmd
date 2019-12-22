@@ -1,4 +1,4 @@
-### Radixs {#langx-java_references_utils_Radixs}
+## Radixs {#langx-java_references_utils_Radixs}
 
 Radix converter, convet a byte,byte[], char, char[], short, short[], int, int[], long, long[] to binary, otc, decimal, hex.
 
