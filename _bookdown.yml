@@ -18,6 +18,7 @@ rmd_files:
   - langx-java/references/utils/Chars.Rmd
   - langx-java/references/utils/Radixs.Rmd
   - langx-java/references/utils/Maths.Rmd
+  - langx-java/references/struct/index.Rmd
   - sqlhelper/index.Rmd
   - sqlhelper/pagination_supports_databases.Rmd
   - sqlhelper/pagination_configuration.Rmd

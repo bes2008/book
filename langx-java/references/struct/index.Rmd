@@ -1,0 +1,90 @@
+# Common Struct {#langx-java_references_package_Struct}
+Holder, Pair, Entry etc
+
+## Pair {#langx-java_references_struct_Pair}
+the key-value pair
+
+```java
+public abstract class Pair<K, V> {
+    private K key;
+    private V value;
+
+    public K getKey() {
+        return key;
+    }
+
+    public V getValue() {
+        return value;
+    }
+
+    public void setKey(K key) {
+        this.key = key;
+    }
+
+    public V setValue(V value) {
+        V old = this.value;
+        this.value = value;
+        return old;
+    }
+
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Pair that = (Pair) object;
+        return key.equals(that.key) && value.equals(that.key);
+    }
+
+}
+
+```
+
+all subtypes: 
+
+  + DoubleNameValuePair
+  + Entry
+  + IntegerNameValuePair 
+  + LongNameValuePair
+  + NameValuePair
+  + StringNameValuePair
+
+## Entry {#langx-java_references_struct_Entry}
+Entry extends the Pair class, and the following methods are provided
+
+```java
+public static Entry<String, String> newEntry(String keyValue, String spec);
+public static Map<String, String> getMap(String str, String keyValueSpec, String entrySpec);
+public static List<Map<String, String>> getMapList(String src, String keyValueSpec, String entrySpec, String listSpecFlag);
+```
+
+## Holder {#langx-java_references_struct_Holder}
+the value holder
+
+```java
+public class Holder<V> {
+    private V v;
+
+    public Holder() {
+    }
+
+    public Holder(final V value) {
+        this.set(value);
+    }
+
+    public void set(final V value) {
+        this.v = value;
+    }
+
+    public V get() {
+        return this.v;
+    }
+
+}
+
+
+```
