@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 outline | Tutorial</title>
-  <meta name="description" content="Chapter 1 outline | Tutorial for langx-java, easyjson, sqlhelper" />
+  <title>Chapter 4 Common Struct | Tutorial</title>
+  <meta name="description" content="Chapter 4 Common Struct | Tutorial for langx-java, easyjson, sqlhelper" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 outline | Tutorial" />
+  <meta property="og:title" content="Chapter 4 Common Struct | Tutorial" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Chapter 1 outline | Tutorial for langx-java, easyjson, sqlhelper" />
+  <meta property="og:description" content="Chapter 4 Common Struct | Tutorial for langx-java, easyjson, sqlhelper" />
   <meta name="github-repo" content="fangjinuo/book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 outline | Tutorial" />
+  <meta name="twitter:title" content="Chapter 4 Common Struct | Tutorial" />
   
-  <meta name="twitter:description" content="Chapter 1 outline | Tutorial for langx-java, easyjson, sqlhelper" />
+  <meta name="twitter:description" content="Chapter 4 Common Struct | Tutorial for langx-java, easyjson, sqlhelper" />
   
 
 <meta name="author" content="fangjinuo" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="langx-java-installation.html"/>
+<link rel="prev" href="lanx-java-references-utils.html"/>
+<link rel="next" href="sqlhelper-outline.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -211,181 +211,101 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="langx-java_outline" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> outline</h1>
-<p>Java lang extensions，a supplement to , replacement of a Guava, commons-lang</p>
-<p><a href="https://github.com/fangjinuo/langx-java/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" /></a></p>
-<p><a href="https://www.codacy.com/manual/fs1194361820/langx-java?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fangjinuo/langx-java&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/3d8c8c9680234698b04819059c9cd6c3" alt="Codacy Badge" /></a></p>
-<p><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html"><img src="https://img.shields.io/badge/JDK-1.6+-green.svg" alt="JDK" /></a></p>
-<div id="repository" class="section level2">
-<h2><span class="header-section-number">1.1</span> Repository</h2>
-<p><a href="https://github.com/fangjinuo/langx-java">GitHub</a>: <a href="https://github.com/fangjinuo/langx-java" class="uri">https://github.com/fangjinuo/langx-java</a></p>
-<p><a href="https://gitee.com/fangjinuo/langx-java">Gitee</a>: <a href="https://gitee.com/fangjinuo/langx-java" class="uri">https://gitee.com/fangjinuo/langx-java</a></p>
-</div>
-<div id="langx-java_version" class="section level2">
-<h2><span class="header-section-number">1.2</span> Versions</h2>
-<p><a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:1.2.4"><img src="https://img.shields.io/badge/maven-v1.2.4-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:1.2.3"><img src="https://img.shields.io/badge/maven-v1.2.3-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:1.2.2"><img src="https://img.shields.io/badge/maven-v1.2.2-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:1.2.1"><img src="https://img.shields.io/badge/maven-v1.2.1-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:1.2.0"><img src="https://img.shields.io/badge/maven-v1.2.0-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:1.1.0"><img src="https://img.shields.io/badge/maven-v1.1.0-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:1.0.0"><img src="https://img.shields.io/badge/maven-v1.0.0-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:0.1.0"><img src="https://img.shields.io/badge/maven-v0.1.0-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:0.0.9"><img src="https://img.shields.io/badge/maven-v0.0.9-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:0.0.8"><img src="https://img.shields.io/badge/maven-v0.0.8-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:0.0.7"><img src="https://img.shields.io/badge/maven-v0.0.7-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:0.0.6"><img src="https://img.shields.io/badge/maven-v0.0.6-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:0.0.5"><img src="https://img.shields.io/badge/maven-v0.0.5-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:0.0.4"><img src="https://img.shields.io/badge/maven-v0.0.4-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:0.0.3"><img src="https://img.shields.io/badge/maven-v0.0.3-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:0.0.2"><img src="https://img.shields.io/badge/maven-v0.0.2-green.svg" alt="maven" /></a>
-<a href="https://search.maven.org/search?q=g:com.github.fangjinuo.langx%20AND%20v:0.0.1"><img src="https://img.shields.io/badge/maven-v0.0.1-green.svg" alt="maven" /></a></p>
-</div>
-<div id="langx-java_features" class="section level2">
-<h2><span class="header-section-number">1.3</span> Features</h2>
+<div id="langx-java_references_package_Struct" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Common Struct</h1>
+<p>Holder, Pair, Entry etc</p>
+<div id="langx-java_references_struct_Pair" class="section level2">
+<h2><span class="header-section-number">4.1</span> Pair</h2>
+<p>the key-value pair</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> Pair&lt;K, V&gt; {</a>
+<a class="sourceLine" id="cb13-2" title="2">    <span class="kw">private</span> K key;</a>
+<a class="sourceLine" id="cb13-3" title="3">    <span class="kw">private</span> V value;</a>
+<a class="sourceLine" id="cb13-4" title="4"></a>
+<a class="sourceLine" id="cb13-5" title="5">    <span class="kw">public</span> K <span class="fu">getKey</span>() {</a>
+<a class="sourceLine" id="cb13-6" title="6">        <span class="kw">return</span> key;</a>
+<a class="sourceLine" id="cb13-7" title="7">    }</a>
+<a class="sourceLine" id="cb13-8" title="8"></a>
+<a class="sourceLine" id="cb13-9" title="9">    <span class="kw">public</span> V <span class="fu">getValue</span>() {</a>
+<a class="sourceLine" id="cb13-10" title="10">        <span class="kw">return</span> value;</a>
+<a class="sourceLine" id="cb13-11" title="11">    }</a>
+<a class="sourceLine" id="cb13-12" title="12"></a>
+<a class="sourceLine" id="cb13-13" title="13">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setKey</span>(K key) {</a>
+<a class="sourceLine" id="cb13-14" title="14">        <span class="kw">this</span>.<span class="fu">key</span> = key;</a>
+<a class="sourceLine" id="cb13-15" title="15">    }</a>
+<a class="sourceLine" id="cb13-16" title="16"></a>
+<a class="sourceLine" id="cb13-17" title="17">    <span class="kw">public</span> V <span class="fu">setValue</span>(V value) {</a>
+<a class="sourceLine" id="cb13-18" title="18">        V old = <span class="kw">this</span>.<span class="fu">value</span>;</a>
+<a class="sourceLine" id="cb13-19" title="19">        <span class="kw">this</span>.<span class="fu">value</span> = value;</a>
+<a class="sourceLine" id="cb13-20" title="20">        <span class="kw">return</span> old;</a>
+<a class="sourceLine" id="cb13-21" title="21">    }</a>
+<a class="sourceLine" id="cb13-22" title="22"></a>
+<a class="sourceLine" id="cb13-23" title="23"></a>
+<a class="sourceLine" id="cb13-24" title="24">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb13-25" title="25">    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">equals</span>(<span class="bu">Object</span> object) {</a>
+<a class="sourceLine" id="cb13-26" title="26">        <span class="kw">if</span> (<span class="kw">this</span> == object) {</a>
+<a class="sourceLine" id="cb13-27" title="27">            <span class="kw">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb13-28" title="28">        }</a>
+<a class="sourceLine" id="cb13-29" title="29">        <span class="kw">if</span> (object == <span class="kw">null</span> || <span class="fu">getClass</span>() != object.<span class="fu">getClass</span>()) {</a>
+<a class="sourceLine" id="cb13-30" title="30">            <span class="kw">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb13-31" title="31">        }</a>
+<a class="sourceLine" id="cb13-32" title="32">        Pair that = (Pair) object;</a>
+<a class="sourceLine" id="cb13-33" title="33">        <span class="kw">return</span> key.<span class="fu">equals</span>(that.<span class="fu">key</span>) &amp;&amp; value.<span class="fu">equals</span>(that.<span class="fu">key</span>);</a>
+<a class="sourceLine" id="cb13-34" title="34">    }</a>
+<a class="sourceLine" id="cb13-35" title="35"></a>
+<a class="sourceLine" id="cb13-36" title="36">}</a></code></pre></div>
+<p>all subtypes:</p>
 <ul>
-<li>Lang extensions, for examples: Bytes, Chars, Arrays, Numbers, Dates, Throwables, Filenames, Files, FileSystems …</li>
-<li>Collection extensions:
-<ul>
-<li>Supports Stream API for Java 6+</li>
-<li>Adapter any object to Iterable</li>
-<li>Supports NonAbsentMap, using it, the map.get(key) will not return the null</li>
-<li>Supports NonDistinctTreeSet, NonDistinctTreeMap, just sort</li>
-<li>Supports Tuple</li>
-<li>Supports WheelQueue, CopyOnWriteHashMap</li>
-<li>NamedInheritableThreadLocal</li>
-<li>IdentityMap</li>
-<li>IdentitySet</li>
-<li>WeakIdentityHashMap</li>
-<li>ConcurrentReferenceHashMap</li>
-</ul></li>
-<li>Differ API
-<ul>
-<li>Collection Differ</li>
-<li>Map Differ</li>
-</ul></li>
-<li>Cache
-<ul>
-<li>Local Cache
-<ul>
-<li>LRUCache</li>
-<li>FIFOCache</li>
-</ul></li>
-</ul></li>
-<li>Accessor API
-<ul>
-<li>Tuple</li>
-<li>Environment Accessor</li>
-<li>Properties Accessor</li>
-<li>Map Accessor</li>
-<li>StringMap Accessor</li>
-<li>Field Accessor</li>
-<li>Array Accessor</li>
-<li>HTTP Query String Accessor</li>
-</ul></li>
-<li>Reflect utilities
-<ul>
-<li>Modifiers</li>
-<li>Reflects</li>
-<li>Types</li>
-<li>Primitives</li>
-</ul></li>
-<li>timing
-<ul>
-<li>HashedWheelTimer</li>
-<li>Linux NTP</li>
-<li>Cron</li>
-<li>Joda-time</li>
-<li>Clock</li>
-<li>StopWatch</li>
-</ul></li>
-<li>JavaScript in Java</li>
-<li>IdGenerator
-<ul>
-<li>AutoIncrementIdGenerator</li>
-<li>Base64IdGenerator</li>
-<li>SimpleIdGenerator</li>
-<li>UuidGenerator</li>
-<li>SnowflakeIdGenerator</li>
-</ul></li>
-<li>Proxy
-<ul>
-<li>AOP</li>
-<li>delegate</li>
-</ul></li>
-<li>Base64 for Java 6+<br />
-</li>
-<li>text
-<ul>
-<li>CSV</li>
-<li>Pinyin</li>
-<li>StringTemplate
-<ul>
-<li>placeholder: {}</li>
-<li>index: {0}, {1}</li>
-<li>C style: %d, %s …</li>
-<li>bean : ${fieldName1}, ${fieldName2}</li>
-<li>map: ${key1}, ${key2}</li>
-</ul></li>
-</ul></li>
-<li>Null judge is unnecessary</li>
-<li>Environment
-<ul>
-<li>SystemEnvironment</li>
-</ul></li>
-<li>Event API<br />
-</li>
-<li>Comparators</li>
-<li>Parse Hosts File</li>
-<li>Codec</li>
-<li>ClassPath Scanner</li>
-<li>Local JNDI</li>
-<li>Security checksum</li>
-<li>Radix converter</li>
-<li>JMX management API</li>
-<li>File Filter
-<ul>
-<li>ExecutableFilter</li>
-<li>ExistsFileFilter</li>
-<li>FilenamePrefixFilter</li>
-<li>FilenameSuffixFilter</li>
-<li>IsDirectoryFileFilter</li>
-<li>IsFileFilter</li>
-<li>IsHiddenFileFilter</li>
-<li>IsSymlinkFileFilter</li>
-<li>ReadableFileFilter</li>
-<li>ReadonlyFileFilter</li>
-<li>ValidFilenameFilter</li>
-<li>WriteableFileFilter</li>
-</ul></li>
-<li>Lifecycle API</li>
-<li>ClassParser</li>
-<li>Converter Service</li>
-<li>BloomFilter</li>
-<li>IO Resource Load API</li>
-<li>Common Configuration API</li>
-<li>Multiple Level Jar URLStreamHandler</li>
-<li>Escaper API</li>
-<li>Delimiter Channel</li>
+<li>DoubleNameValuePair</li>
+<li>Entry</li>
+<li>IntegerNameValuePair</li>
+<li>LongNameValuePair</li>
+<li>NameValuePair</li>
+<li>StringNameValuePair</li>
 </ul>
 </div>
-<div id="langx-java_contact" class="section level2">
-<h2><span class="header-section-number">1.4</span> Contact</h2>
-<p>如果遇到问题，可以在Github, Gitee 上提出issue, 也可以在QQ群里询问。
-代码提交以GitHub为主，会定期同步到Gitee。</p>
-<p>QQ Group: 750929088<br />
-<img src="https://github.com/fangjinuo/sqlhelper/blob/master/_images/qq_group.png" alt="QQ Group" /></p>
+<div id="langx-java_references_struct_Entry" class="section level2">
+<h2><span class="header-section-number">4.2</span> Entry</h2>
+<p>Entry extends the Pair class, and the following methods are provided</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">public</span> <span class="dt">static</span> Entry&lt;<span class="bu">String</span>, <span class="bu">String</span>&gt; <span class="fu">newEntry</span>(<span class="bu">String</span> keyValue, <span class="bu">String</span> spec);</a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="kw">public</span> <span class="dt">static</span> <span class="bu">Map</span>&lt;<span class="bu">String</span>, <span class="bu">String</span>&gt; <span class="fu">getMap</span>(<span class="bu">String</span> str, <span class="bu">String</span> keyValueSpec, <span class="bu">String</span> entrySpec);</a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="kw">public</span> <span class="dt">static</span> <span class="bu">List</span>&lt;<span class="bu">Map</span>&lt;<span class="bu">String</span>, <span class="bu">String</span>&gt;&gt; <span class="fu">getMapList</span>(<span class="bu">String</span> src, <span class="bu">String</span> keyValueSpec, <span class="bu">String</span> entrySpec, <span class="bu">String</span> listSpecFlag);</a></code></pre></div>
+</div>
+<div id="langx-java_references_struct_Holder" class="section level2">
+<h2><span class="header-section-number">4.3</span> Holder</h2>
+<p>the value holder</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">public</span> <span class="kw">class</span> <span class="bu">Holder</span>&lt;V&gt; {</a>
+<a class="sourceLine" id="cb15-2" title="2">    <span class="kw">private</span> V v;</a>
+<a class="sourceLine" id="cb15-3" title="3"></a>
+<a class="sourceLine" id="cb15-4" title="4">    <span class="kw">public</span> <span class="bu">Holder</span>() {</a>
+<a class="sourceLine" id="cb15-5" title="5">    }</a>
+<a class="sourceLine" id="cb15-6" title="6"></a>
+<a class="sourceLine" id="cb15-7" title="7">    <span class="kw">public</span> <span class="bu">Holder</span>(<span class="dt">final</span> V value) {</a>
+<a class="sourceLine" id="cb15-8" title="8">        <span class="kw">this</span>.<span class="fu">set</span>(value);</a>
+<a class="sourceLine" id="cb15-9" title="9">    }</a>
+<a class="sourceLine" id="cb15-10" title="10"></a>
+<a class="sourceLine" id="cb15-11" title="11">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">set</span>(<span class="dt">final</span> V value) {</a>
+<a class="sourceLine" id="cb15-12" title="12">        <span class="kw">this</span>.<span class="fu">v</span> = value;</a>
+<a class="sourceLine" id="cb15-13" title="13">    }</a>
+<a class="sourceLine" id="cb15-14" title="14"></a>
+<a class="sourceLine" id="cb15-15" title="15">    <span class="kw">public</span> V <span class="fu">get</span>() {</a>
+<a class="sourceLine" id="cb15-16" title="16">        <span class="kw">return</span> <span class="kw">this</span>.<span class="fu">v</span>;</a>
+<a class="sourceLine" id="cb15-17" title="17">    }</a>
+<a class="sourceLine" id="cb15-18" title="18"></a>
+<a class="sourceLine" id="cb15-19" title="19">}</a>
+<a class="sourceLine" id="cb15-20" title="20"></a></code></pre></div>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="langx-java-installation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lanx-java-references-utils.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sqlhelper-outline.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -416,7 +336,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/fangjinuo/book/edit/master/langx-java/index.Rmd",
+"link": "https://github.com/fangjinuo/book/edit/master/langx-java/references/struct/index.Rmd",
 "text": "Edit"
 },
 "history": {
