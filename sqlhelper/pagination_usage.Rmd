@@ -1,1 +1,29 @@
 ## Usage {#pagination_usage}
+
+### PagingRequest
+
+the following properties are provided in PagingRequest :
+
++ **dialect** {String}, the dialect will be used, the default value is null. 
++ **count** {Boolean}, whether execute select count statement or not, the default value is null.
++ **countColumn** {String}, the property will be used in the count statement like this: ```select count(${countColumn})```
++ **pageNo** {String}, the page will get
++ **pageSize** {String}, the page size
++ **fetchSize** {Integer} the JDBC's fetch size, the default value is null.
++ **maxRows** {int} the JDBC's maxRows, the default value is -1
++ **timeout** {int} the JDBC's query timeout, the default value is 0
++ **useLastPageIfPageOut** {Boolean}, whether get the last page if the pageNo greate than max page, the default value is null.
++ **orderBy** {OrderBy} the order by
++ **condiation** {Any Object} the extra condition
++ **isSubQueryPaging** {boolean}, whether is a sub query paging request, the default value is false
++ **subqueryPagingStartFlag** {String} the flag of the subquery paging request, the default value is null.
++ **subqueryPagingEndFlag** {String} the flag of the subquery paging request, the default value is null.
++ **result** {PagingResult} the result of the paging request
+
+
+supply 3 request types:
+
+1. empty request, will not execute select statement if **pageSize = 0**
+2. get all request, will not exeucte pagination reqeust if **pageSize < 0**
+3. pagination request, will execute an pagination request, if **pageSize > 0**
+
