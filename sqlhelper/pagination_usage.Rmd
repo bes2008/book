@@ -27,3 +27,12 @@ supply 3 request types:
 2. get all request, will not exeucte pagination reqeust if **pageSize < 0**
 3. pagination request, will execute an pagination request, if **pageSize > 0**
 
+
+### PagingResult
+
++ **pageNo** {int} current page
++ **pageSize** {int} the pageSize
++ **total** the total count
++ **items** {List} the rows
+
+if you want get the max page, just use the **getMaxPageCount()** method
