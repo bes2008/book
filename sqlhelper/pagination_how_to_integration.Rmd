@@ -1,0 +1,7 @@
+## Usage {#pagination_how_to_integration}
+
+### Dialect {#sqlhelper_class_dialect}
+
+Dialect is a core class, use it, you can parseURL, set limit, offset for a pagination request, escape the like parameters, generate table's DDL etc.
+
+

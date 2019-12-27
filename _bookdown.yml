@@ -29,4 +29,5 @@ rmd_files:
   - sqlhelper/pagination_scenario_springjdbc.Rmd
   - sqlhelper/pagination_scenario_apachedbutils.Rmd
   - sqlhelper/pagination_usage.Rmd
+  - sqlhelper/pagination_how_to_integration.Rmd
   
