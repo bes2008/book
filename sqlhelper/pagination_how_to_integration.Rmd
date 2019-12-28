@@ -1,23 +1,60 @@
-## How to Integration {#pagination_how_to_integration}
+## How to Integrate {#pagination_how_to_integrate}
 
-![sqlhelper architecutre](../resources/image/sqlhelper/sqlhelper_class_graph.png)
+![sqlhelper pagination](../resources/image/sqlhelper/sqlhelper_class_graph.png)
 
-+ **Dialect** is a core class, use it, you can parseURL, set limit, offset for a pagination request, escape the like parameters, generate table's DDL etc. Every database will has a dialect.
-+ **DialectRegistry** is the dialect registry centeral
-+ **LikeEscaper** use it to avoid some keywords (%, _ ...) in like clause
-+ **UrlParser** parse jdbc url
-+ **SQLStatementInstrumentor** instrument some string to a sepicified Sql statement
-+ **Pagination** common pagination, will be used in mybatis, spring-jdbc, apacha commons-dbutils, mango, ebean, jfinal ...
-+ **ResultSetExtractor** the resultset extractor, extract a result to any you expected. so you can use in any jdbc framework
-+ **BatchUpdater** supply 3 batch update mode: 
-  + BATCH_SQL: use database's batch sql
-  + JDBC_BATCH: use jdbc batch operation
-  + SIMPLE: just insert or update in a for loop
-+ **ConnectionManager** support custom connection configuration, datasource ...
-+ **BatchInsertExecutor** batch insert a large dataset to database
-+ **SqlFormatter** format a sql
-+ **TableGenerator** a table DDL generator
-+ **TableDDLDumper** dump the ddl of any table
+SQLStatementInstrumentor provide the following functions: 
+
++ instrument the limit partion to the sql
++ set prepared parameters. 
++ build select count sql
+
+
+integrate into a database framework just the following steps:
+
++ step 1: Get the dialect if is a paging request
+```java
+PagingRequestContext PAGING_CONTEXT = PagingRequestContextHolder.getContext();
+boolean isPagingRequest = PAGING_CONTEXT.isPagingRequest());
+if(isPagingRequest){
+    instrumentor.beginIfSupportsLimit(xxx);
+}
+PagingRequest pagingRequest = PAGING_CONTEXT.getPagingRequest();
+PagingResult result = new PagingResult();
+pagingRequest.setResult(result);
+
+```
++ step 2: execute a ```select count``` sql statement if need get the total count
+```java
+String countSql = instrumentor.countSql(sql, pagingRequest.getCountColumn());
+int total = query(countSql, SelectCountResultSetExtractor.INSTANCe)
+result.setTotal(total);
+```
++ step 3: instrument limit partion to a sql
+```java
+RowSelection rowSelection = rowSelectionBuilder.build(pagingRequest);
+String paginationSql = sql;
+if (PAGING_CONTEXT.isOrderByRequest()) {
+    paginationSql = instrumentor.instrumentOrderByLimitSql(sql, pagingRequest.getOrderBy(), rowSelection);
+} else {
+    paginationSql = instrumentor.instrumentLimitSql(sql, rowSelection);
+}
+```
++ step 4: wrap the preparedstatement (Optional)
+```java
+PreparedStatement ps = new PagedPreparedStatement(this.prepareStatement(conn, paginationSql));
+```
++ step 5: wrap original parameters as a ```QueryParameters```
+```java
+QueryParameters queryParameters = new ArrayBasedQueryParameters();
+queryParameters.setRowSelection(rowSelection);
+queryParameters.setParameters(params, 0, 0);
+```
++ step 6: set parameters
+```java
+instrumentor.bindParameters(ps, parameterSetter, queryParameters, true);
+. . .
+```
+
 
 
 
