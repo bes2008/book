@@ -22,10 +22,11 @@ biblio-style: apalike
 
 ---
 
-1. **[langx-java](https://github.com/fangjinuo/langx-java): **Java lang extensions，a supplement to , replacement of a Guava, commons-lang.
-2. **[easyjson](https://github.com/fangjinuo/easyjson): **Provides an unified JSON access API, you can adapter any JSON library to Gson, Jackson, FastJson with easyjson
-3. **[sqlhelper](https://github.com/fangjinuo/sqlhelper): **SQL Tools ( Dialect, Pagination, DDL dump, UrlParser, SqlStatementParser, WallFilter, BatchExecutor for Test) based Java.
-4. **[Audit](https://github.com/fangjinuo/audit): ** A Common audit framework for java application.
+1. **[langx-java](https://github.com/fangjinuo/langx-java): **Java 语言扩展包，可以认为是 Guava, commons-lang, hutool等工具的替代品.
+2. **[langx-js](https://github.com/fangjinuo/langx-js): ** 基于TypeScript实现的一套JS工具集
+2. **[easyjson](https://github.com/fangjinuo/easyjson): **是JSON库的门面，提供了统一的JSON操作门面。本身不做JSON操作，完全适配给底层的JSON库（gson, jackson, fastjson）。同时，也针对现有的JSON库做了适配，让他们适配给easyjson。
+3. **[sqlhelper](https://github.com/fangjinuo/sqlhelper): **SQL 工具套件( Dialect, Pagination, DDL dump, UrlParser, SqlStatementParser, WallFilter, BatchExecutor for Test) 
+4. **[Audit](https://github.com/fangjinuo/audit): ** 通用的审计日志开发框架，通过简单的配置即可定义操作、定义资源获取。
 
 
 
