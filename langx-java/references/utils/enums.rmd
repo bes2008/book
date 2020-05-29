@@ -1,0 +1,85 @@
+## CommonEnum
+提供了通用的枚举机制，
+```java
+public interface CommonEnum {
+    int getCode();
+
+    String getName();
+
+    String getDisplayText();
+}
+```
+
+这里假定枚举有3个属性: code, name, displayText;    
+
+<p>                                                                        
+使用CommonEnum，声明一个枚举，就可以变成这样：
+<pre>                                                                      
+    public enum Period implements CommonEnum,Delegatable<EnumDelegate> {   
+        MINUTES(0, "minutes", "minutes"),                                  
+        HOURS(1, "hours", "hours"),                                        
+        DAY(2, "day", "day"),                                              
+        MONTH(3, "month", "month");                                        
+                                                                           
+                                                                           
+        private EnumDelegate delegate;                                     
+                                                                           
+        Period(int code, String name, String displayText){                 
+            setDelegate(new EnumDelegate(code, name, displayText));        
+        }                                                                  
+                                                                           
+        public int getCode(){                                              
+            return this.delegate.getCode();                                                   
+        }                                                                  
+                                                                           
+        public String getName(){                                           
+            return this.delegate.getName(); 
+        }                                                                  
+                                                                           
+        public String getDisplayText(){                                    
+            return this.delegate.getDisplayText();                                            
+        }                                                                  
+                                                                           
+        public EnumDelegate getDelegate(){                                 
+            return delegate;                                               
+        }                                                                  
+                                                                           
+        public void setDelegate(EnumDelegate delegate){                    
+            this.delegate = delegate;                                      
+        }                                                                  
+    }                                                                      
+</pre>                                                                     
+<p>                                                                        
+那么在程序中如何根据 code, name, displayText来获取对应的枚举呢？                                                            
+```java
+    // get an enum instance by code                                        
+    Period p = Enums.ofCode(0);                                            
+                                                                           
+    // get an enum instance by name                                        
+    Period p = Enums.ofName("minutes");                                    
+                                                                           
+    // get an enum instance by displayText                                 
+    Period p = Enums.ofDisplayText("minutes");                             
+```                                                                   
+
+如果你的枚举，并没有使用 CommonEnum接口，Enums也提供了针对简易枚举的快速获取方式：
+```java
+// 根据 ordinal 来获取枚举
+public static <T extends Enum<T>> T ofValue(final int value, Class<T> targetClass);
+
+// 如果枚举类实现了 CommonEnum接口，则优先根据code 进行查找
+// 如果没有实现CommonEnum接口，则根据 ordinal来查找
+public static <T extends Enum<T>> T ofCode(@NonNull final Class<T> tClass, final int code);
+
+// 如果枚举类实现了 CommonEnum接口，则优先根据 getName() 进行查找
+// 如果没有实现CommonEnum接口，则根据 name() 来查找
+public static <T extends Enum<T>> T ofName(@NonNull final Class<T> tClass, final String name);
+
+// 如果枚举类实现了 CommonEnum接口，则优先根据 getDisplayText() 进行查找
+// 如果没有实现CommonEnum接口，则根据 name() 来查找
+public static <T extends Enum<T>> T ofDisplayText(@NonNull final Class<T> tClass, final String displayText);
+
+// 如果你的枚举除了 code,name, displayText外，还有其他的字段，你可以用这个方法来查找
+public static <T extends Enum<T>> T ofField(Class<T> targetClass, final String field, final Object value);
+```
+

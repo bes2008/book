@@ -12,6 +12,7 @@ rmd_files:
   - langx-java/references/utils/index.Rmd
   - langx-java/references/utils/Emptys.Rmd
   - langx-java/references/utils/Objects.Rmd
+  - langx-java/references/utils/enums.Rmd
   - langx-java/references/utils/Strings.Rmd
   - langx-java/references/utils/Numbers.Rmd
   - langx-java/references/utils/Bytes.Rmd
