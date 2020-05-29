@@ -1,0 +1,18 @@
+## Iterable, Iterator 扩展
+
+提供了如下问题的解决方案：
+
+1. ArrayEnumeration： 以Enumeration 接口的方式来遍历数组
+2. ArrayIterator： 以Iterator 接口的方式来遍历数组
+3. EnumerationIterator：将Enumeration接口转为Iterator接口
+4. EnumerationIterable: 将Enumeration接口转为Iterable接口
+5. IteratorEnumeration: 将Iterator接口转为Enumeration接口
+6. IterableEnumeration: 将Iterable接口转为Enumeration接口
+7. IteratorIrterable: 将Iterator接口转为Iterable接口
+8. ReverseListIterator: 提供对一个List进行反向迭代的API
+9. WrappedIterable: 将一个Iterable委托给另外一个Iterable
+10. WrappedIterator: 将一个Iterator委托给另外一个Iterator
+11. ReadonlyCollectionIterator: 对集合只读迭代
+12. ResettableIteraotr: 可复位重用的Iterator
+
+

@@ -20,6 +20,9 @@ rmd_files:
   - langx-java/references/utils/Radixs.Rmd
   - langx-java/references/utils/Maths.Rmd
   - langx-java/references/struct/index.Rmd
+  - langx-java/references/accessor/index.rmd
+  - langx-java/references/collection/index.rmd
+  - langx-java/references/collection/iterator.rmd
   - sqlhelper/index.Rmd
   - sqlhelper/sqlhelper_architecture.Rmd
   - sqlhelper/sqlhelper_supports_databases.Rmd

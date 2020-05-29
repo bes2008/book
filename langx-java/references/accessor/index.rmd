@@ -69,13 +69,14 @@ public interface Accessor<K, T> {
 ```
 
 目前提供了对下面数据结构的方便的访问：
-+ TupleAccessor
-+ ArrayAccessor
-+ MapAccessor 
-+ PropertiesAccessor
-+ FieldAccessor 通过反射了读写字段的值
-+ TreeNodeAccessor 树API中的node
-+ XmlElementAttributeAccessor 对XML元素的属性
+
+1. TupleAccessor
+2. ArrayAccessor
+3. MapAccessor 
+4. PropertiesAccessor
+5. FieldAccessor 通过反射了读写字段的值
+6. TreeNodeAccessor 树API中的node
+7. XmlElementAttributeAccessor 对XML元素的属性
 
 你可以基于它提供更多的实现
 
