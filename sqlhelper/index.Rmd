@@ -88,7 +88,7 @@ SQL Tools ( **Dialect**, **Pagination**, **DDL Dump**, **UrlParser**, **SqlState
     + SequoiaDB (巨杉)
     + SinoDB (星瑞格)
     + TDSQL (腾讯 分布式MySQL)
-    + TiDB (北京平凯星辰科技))
+    + TiDB (北京平凯星辰科技)
     + Trafodion (易鲸捷 EsgynDB的开源版)
 
 + DDL Dumper
