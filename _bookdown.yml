@@ -20,7 +20,8 @@ rmd_files:
   - langx-java/references/utils/Maths.Rmd
   - langx-java/references/struct/index.Rmd
   - sqlhelper/index.Rmd
-  - sqlhelper/pagination_supports_databases.Rmd
+  - sqlhelper/sqlhelper_architecture.Rmd
+  - sqlhelper/sqlhelper_supports_databases.Rmd
   - sqlhelper/pagination_configuration.Rmd
   - sqlhelper/pagination_scenario_mybatis.Rmd
   - sqlhelper/pagination_scenario_mybatis_springboot.Rmd
@@ -29,4 +30,5 @@ rmd_files:
   - sqlhelper/pagination_scenario_springjdbc.Rmd
   - sqlhelper/pagination_scenario_apachedbutils.Rmd
   - sqlhelper/pagination_usage.Rmd
+  - sqlhelper/pagination_how_to_integration.Rmd
   

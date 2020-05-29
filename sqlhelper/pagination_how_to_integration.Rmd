@@ -1,0 +1,60 @@
+## How to Integrate {#pagination_how_to_integrate}
+
+![sqlhelper pagination](../resources/image/sqlhelper/sqlhelper_class_graph.png)
+
+SQLStatementInstrumentor provide the following functions: 
+
++ instrument the limit partion to the sql
++ set prepared parameters. 
++ build select count sql
+
+
+integrate into a database framework just the following steps:
+
++ step 1: Get the dialect if is a paging request
+```java
+PagingRequestContext PAGING_CONTEXT = PagingRequestContextHolder.getContext();
+boolean isPagingRequest = PAGING_CONTEXT.isPagingRequest());
+if(isPagingRequest){
+    instrumentor.beginIfSupportsLimit(xxx);
+}
+PagingRequest pagingRequest = PAGING_CONTEXT.getPagingRequest();
+PagingResult result = new PagingResult();
+pagingRequest.setResult(result);
+
+```
++ step 2: execute a ```select count``` sql statement if need get the total count
+```java
+String countSql = instrumentor.countSql(sql, pagingRequest.getCountColumn());
+int total = query(countSql, SelectCountResultSetExtractor.INSTANCe)
+result.setTotal(total);
+```
++ step 3: instrument limit partion to a sql
+```java
+RowSelection rowSelection = rowSelectionBuilder.build(pagingRequest);
+String paginationSql = sql;
+if (PAGING_CONTEXT.isOrderByRequest()) {
+    paginationSql = instrumentor.instrumentOrderByLimitSql(sql, pagingRequest.getOrderBy(), rowSelection);
+} else {
+    paginationSql = instrumentor.instrumentLimitSql(sql, rowSelection);
+}
+```
++ step 4: wrap the preparedstatement (Optional)
+```java
+PreparedStatement ps = new PagedPreparedStatement(this.prepareStatement(conn, paginationSql));
+```
++ step 5: wrap original parameters as a ```QueryParameters```
+```java
+QueryParameters queryParameters = new ArrayBasedQueryParameters();
+queryParameters.setRowSelection(rowSelection);
+queryParameters.setParameters(params, 0, 0);
+```
++ step 6: set parameters
+```java
+instrumentor.bindParameters(ps, parameterSetter, queryParameters, true);
+. . .
+```
+
+
+
+

@@ -1,4 +1,4 @@
-## Supports Databases
+## Supports Databases {#sqlhelper_supported_databases}
 
 Supports the following databases, your can find them in [DBEngines](https://db-engines.com/en/ranking/relational+dbms):
 

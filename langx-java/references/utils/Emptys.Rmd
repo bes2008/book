@@ -1,5 +1,5 @@
 ## Emptys {#langx-java_references_utils_Emptys}
-In any java project, you can often see the following code:
+不使用Emptys时的代码:
 
 ```java
 // scenario 1:
@@ -32,7 +32,7 @@ if(map != null && map.size() > 0){
    
 ```
 
-to avoid these vomiting code, supply some simple code:
+使用Emptys简化后的代码:
 
 ```java
 // scenario 1:
@@ -61,7 +61,7 @@ if(Emptys.isNotEmpty(map)){
 }
 ```
 
-wow, you can use Emptys.isNotEmpty() to judge any object is not empty.
+来看一下Emptys的源码：
 
 ```java
     public static boolean isNotEmpty(Object o) {
